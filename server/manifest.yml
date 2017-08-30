@@ -1,0 +1,9 @@
+---
+applications:
+- name: YOUR_APP_NAME
+  memory: 512M
+  disk_quota: 512M
+  host: YOUR_HOST_NAME
+  domain: mybluemix.net
+  services:
+  - Visual Recognition-23 //YOUR_VISUAL_RECOGNITION_SERVICE_NAME
