@@ -7,12 +7,26 @@ When the reader has completed this journey, they will understand how to:
 
 
 
+
+
+
 Architecture Diagram
 
 
 
 
+
+
+
+
 ## Flow
+
+
+
+
+
+
+
 
 
 
@@ -23,18 +37,43 @@ Want to take your Watson app to the next level? Looking to leverage Watson Brand
 
 ## Included components
 
-* Watson Visual Recognition: Visual Recognition understands the contents of images.Analyze images for scenes, objects, faces, colors, food, and other subjects that can give you insights into your visual content.
+* Watson Visual Recognition: Visual Recognition understands the contents of images - visual concepts tag the image, find human faces, approximate age and gender, and find similar images in a collection.
 
 * Nutritionix API: The largest verified database of nutrition information.
 
 ## Featured Technologies
 
-* Apache Cordova: Apache Cordova is an open-source mobile development framework.
+* Mobile: Systems of engagement are increasingly using mobile technology as the platform for delivery.
 
-* Node.js: An asynchronous event driven JavaScript runtime, designed to build scalable applications.
+* Node.js: An open-source JavaScript run-time environment for executing server-side JavaScript code.
 
 
 ## Watch the video
+
+
+
+
+
+
+
+
+
+## Steps
+
+Use the Deploy to Bluemix button OR create the services and run locally.
+
+
+## Deploy to Bluemix
+
+
+
+
+
+
+
+
+
+## Run locally
 
 
 
@@ -60,3 +99,30 @@ cordova plugin add org.apache.cordova.file-transfer
   cordova run android
   
   **You can get Nutritionix APP ID & APP Key from https://www.nutritionix.com/**
+  
+  
+  
+  
+  ## Sample Output
+  
+  
+  
+  
+  
+  
+  ## Links
+  
+  
+  
+  
+  
+  
+  ## Troubleshooting
+  
+  
+  
+  ## License
+  
+  Apache 2.0
+  
+  
