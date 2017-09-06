@@ -1,4 +1,4 @@
-# Create a Calorie Counter mobile app using Watson Visual Recognition
+# Create a calorie counter mobile app using Watson Visual Recognition
 
 In this developer journey, we will create a calorie counter mobile app using Apache Cordova, Node.JS and Watson Visual Recognition.
 
@@ -10,7 +10,8 @@ When the reader has completed this journey, they will understand how to:
 
 
 
-Architecture Diagram
+
+
 
 
 
@@ -59,21 +60,6 @@ Want to take your Watson app to the next level? Looking to leverage Watson Brand
 
 
 ## Steps
-
-Use the Deploy to Bluemix button OR create the services and run locally.
-
-
-## Deploy to Bluemix
-
-
-
-
-
-
-
-
-
-## Run locally
 
 
 
