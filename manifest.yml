@@ -1,0 +1,13 @@
+---
+declared-services:
+  CalorieCounter-Visual:
+    label: watson_vision_combined
+    plan: free
+applications:
+- name: CalorieCounterApp
+  path: ./server
+  memory: 512M
+  disk_quota: 512M
+  random-route: true
+  services:
+  - CalorieCounter-Visual
