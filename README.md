@@ -2,7 +2,7 @@
 
 In this developer journey, we will create a calorie counter mobile app using Apache Cordova, Node.JS and Watson Visual Recognition.This mobile application analyzes the captured image(food) using Watson Visual Recognition and extracts nutritional information.
 
-![alt text](https://github.com/RiyaMRoy04/CalorieCounterApp/blob/master/images/architecture_diagram.png "Architecture_diagram")
+![Architecture Diagram](https://github.com/RiyaMRoy04/CalorieCounterApp/blob/master/images/arch_diagram.png "Architecture_diagram")
 
 ## Flow
 
