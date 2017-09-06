@@ -6,11 +6,11 @@ In this developer journey, we will create a calorie counter mobile app using Apa
 
 ## Flow
 
-1. The user deploys the server application to IBM Bluemix.
-
-2. The user interacts with the Mobile App.
-
-3. When the user captures the image, the server application uses the Watson Visual Recognition service to analyze the images and Nutritionix API to provide nutritional information.
+1. User interacts with the mobile app and captures an image.
+    
+2. The image is passed to the server application which uses Watson Visual Recognition Service to analyze the images and Nutritionix API to provide nutritional information.
+    
+3. Data is returned to the mobile app for display.
 
 ## With Watson
 
