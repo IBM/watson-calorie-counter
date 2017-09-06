@@ -7,18 +7,7 @@ When the reader has completed this journey, they will understand how to:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+![alt text](https://github.com/RiyaMRoy04/CalorieCounterApp/blob/master/images/architecture_diagram.png "Architecture_diagram")
 
 ## Flow
 
@@ -55,13 +44,7 @@ Want to take your Watson app to the next level? Looking to leverage Watson Brand
 
 
 
-
-
-
-
 ## Steps
-
-
 
 
 # Server
@@ -87,13 +70,9 @@ cordova plugin add org.apache.cordova.file-transfer
   **You can get Nutritionix APP ID & APP Key from https://www.nutritionix.com/**
   
   
-  
-  
   ## Sample Output
   
-  
-  
-  
+  ![alt text](https://github.com/RiyaMRoy04/CalorieCounterApp/blob/master/images/output1.jpg "Output1") ![alt text](https://github.com/RiyaMRoy04/CalorieCounterApp/blob/master/images/output2.jpg "Output2") 
   
   
   ## Links
