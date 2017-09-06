@@ -31,7 +31,7 @@ Want to take your Watson app to the next level? Looking to leverage Watson Brand
 
 ## Prerequisite
 
-* Obtain a Nutritionix API Key: For this project, you'll need an API Key from Nutritionix, so that app can have access to nutritional information of analysed image. Instructions for obtaining a key can be found [here](https://developer.nutritionix.com/). Make note of the API key for later use in your mobile application.
+* Obtain a Nutritionix API Key: For this project, you'll need an API Key from Nutritionix, so that app can have access to nutritional information of analysed image. Instructions for obtaining a key can be found [here](https://developer.nutritionix.com/). *Make note of the API key for later use in your mobile application.*
 
 ## Steps
 
@@ -42,9 +42,13 @@ Use the following steps to deploy the application
 
 ### Deploy the Server Application
 
-1. Edit app name,host name and visual recognition service name in server/manifest.yml
-2. Push app into Bluemix from path directory by issuing command 
-   cf push
+### a) Using the Deploy to Bluemix button
+Clicking on the button below creates a Bluemix DevOps Toolchain and deploys this application to Bluemix. The `manifest.yml` file [included in the repo] is parsed to obtain the name of the application, configuration details, and the list of services that should be provisioned. For further details on the structure of the `manifest.yml` file, see the [Cloud Foundry documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html#minimal-manifest).
+
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/RiyaMRoy04/CalorieCounterApp.git)
+
+Once deployment to Bluemix is completed, you can view the deployed application and services from your bluemix account.
+*Make note of the URL for later use in mobile application*
  
  ### Update the Mobile Application
  
@@ -61,8 +65,7 @@ Use the following steps to deploy the application
  
  *All subsequent commands need to be run within the project's directory, or any subdirectories:* 
  
- 
- i.e. here it will be cd caloriecounter/mobile
+ i.e. here it will be cd CalorieCounterApp/mobile
  
  3. Add the platforms that you want to target your app. We will add the 'android' platform and ensure they get saved to config.xml and package.json.
       ```
