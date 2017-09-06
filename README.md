@@ -82,9 +82,9 @@ Go to the project's root folder on your system and navigate to mobile/www/js/ind
  2. For the app to access device-level features, you need to add plugins:
    
       ```
-      cordova plugin add org.apache.cordova.camera
+      cordova plugin add cordova-plugin-camera
 
-      cordova plugin add org.apache.cordova.file-transfer
+      cordova plugin add cordova-plugin-file-transfer
       ```
  3. Run the following command to build the project for android platform:
    
