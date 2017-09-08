@@ -9,5 +9,5 @@ applications:
   memory: 512M
   disk_quota: 512M
   random-route: true
-  services:
+- services:
   - CalorieCounter-Visual
