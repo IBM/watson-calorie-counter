@@ -37,7 +37,7 @@ If you haven't so yet, you also need to download and install Node.js and cordova
  
  1. Download and install [Node.js](https://nodejs.org/en/download/). On installation you should be able to invoke node and npm on your command line.
  
- 2. Install the cordova module using npm utility of Node.js. The cordova module will automatically be downloaded by the npm utility. Follow the steps [here](https://cordova.apache.org/docs/en/latest/guide/cli/#installing-the-cordova-cli) to install the corodva module.
+ 2. Install the cordova module using npm utility of Node.js. The cordova module will automatically be downloaded by the npm utility. Follow the steps [here](https://cordova.apache.org/docs/en/latest/guide/cli/#installing-the-cordova-cli) to install the corodva module. Check if you satisfy requirements for building the platform [here](https://cordova.apache.org/docs/en/latest/guide/cli/#install-pre-requisites-for-building)
 
 ## Steps
 
@@ -65,7 +65,8 @@ git clone https://github.com/RiyaMRoy04/CalorieCounterApp.git
 ```
 Go to the project's root folder on your system and navigate to mobile/www/js/index.js
  
- **Update SERVER URL -> Bluemix Server URL( It is the URL of the server to receive the image file for analyzing image using Visual Recognition, as encoded by encodeURI() ) 
+ **Update SERVER URL -> Bluemix Server URL 
+ (It is the URL of the server to receive the image file for analyzing image using Visual Recognition, as encoded by encodeURI())** 
  
  **APP ID -> Your Nutritionix APP ID and APP KEY -> Your Nutritionix APP Key** 
  
