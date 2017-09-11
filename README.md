@@ -54,7 +54,7 @@ Clicking on the button below creates a Bluemix DevOps Toolchain and deploys this
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/RiyaMRoy04/CalorieCounterApp.git)
 
 Once deployment to Bluemix is completed, you can view the deployed application and services from your bluemix account.
-**Make note of the URL for later use in mobile application.**
+**Make note of the URL for later use in mobile application. It is the URL of the server to receive the image file for analyzing image using Visual Recognition, as encoded by encodeURI()**
  
  ### Update the Mobile Application
  
@@ -65,7 +65,9 @@ git clone https://github.com/RiyaMRoy04/CalorieCounterApp.git
 ```
 Go to the project's root folder on your system and navigate to mobile/www/js/index.js
  
- **Update APP URL -> Bluemix Server URL, APP ID -> Your Nutritionix APP ID and APP KEY -> Your Nutritionix APP Key** 
+ **Update SERVER URL -> Bluemix Server URL( It is the URL of the server to receive the image file for analyzing image using Visual Recognition, as encoded by encodeURI() ) 
+ 
+ **APP ID -> Your Nutritionix APP ID and APP KEY -> Your Nutritionix APP Key** 
  
  ### Run the Mobile Application
  
