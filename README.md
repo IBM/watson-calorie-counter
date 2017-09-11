@@ -38,6 +38,8 @@ If you haven't so yet, you also need to download and install Node.js and cordova
  1. Download and install [Node.js](https://nodejs.org/en/download/). On installation you should be able to invoke node and npm on your command line.
  
  2. Install the cordova module using npm utility of Node.js. The cordova module will automatically be downloaded by the npm utility. Follow the steps [here](https://cordova.apache.org/docs/en/latest/guide/cli/#installing-the-cordova-cli) to install the corodva module. Check if you satisfy requirements for building the platform [here](https://cordova.apache.org/docs/en/latest/guide/cli/#install-pre-requisites-for-building)
+ 
+ 3. Few requirements(JDK,Android SDK) have to be satisfied to build the cordova project. Cordova for Android requires the Android SDK and requirements can be installed from [here](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#installing-the-requirements)
 
 ## Steps
 
