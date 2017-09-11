@@ -1,0 +1,5 @@
+{
+	"BLUEMIX_SERVER_URL": "<add-bluemix-server-url>",
+	"NUTRITIONIX_APP_KEY":"<add-nutritionix-app-key>",
+	"NUTRITIONIX_APP_ID":"<add-nutritionix-app-id>"
+}

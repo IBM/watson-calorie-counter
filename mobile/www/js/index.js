@@ -17,16 +17,29 @@
  * under the License.
  */
 
-var apiURL = "https://your_host_name.mybluemix.net"; //Server URL for file upload
-var appId = "ENTER_YOUR_NUTRITIONIX_APP_ID"; //Nutritionix APP ID
-var appKey= "ENTER_YOUR_NUTRITIONIX_APP_KEY";  //Nutritionix APP Key
+var config;
+var apiURL;
+var appId;
+var appKey;
 
 document.addEventListener('deviceready',onDevice,false);
 
 function onDevice(){
     
     document.getElementById('captureImage').addEventListener('click',captureImages);
-     
+    
+    
+    $.getJSON("config.json",function(data){
+           format: "json"
+        }).done(function(data){
+          config = data;
+          console.log(config);
+            apiURL = config['BLUEMIX_SERVER_URL'];
+        appId = config['NUTRITIONIX_APP_KEY'];
+        appKey = config['NUTRITIONIX_APP_ID'];
+        });
+    
+    
     
     var win = function (r) {
         
