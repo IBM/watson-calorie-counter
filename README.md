@@ -54,7 +54,7 @@ Clicking on the button below creates a Bluemix DevOps Toolchain and deploys this
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/RiyaMRoy04/CalorieCounterApp.git)
 
 Once deployment to Bluemix is completed, you can view the deployed application and services from your bluemix account.
-**Make note of the URL for later use in mobile application. It is the URL of the server to receive the image file for analyzing image using Visual Recognition, as encoded by encodeURI()**
+**Make note of the URL for later use in mobile application. It is the URL of the server to receive the image file for analyzing image using Visual Recognition, as encoded by encodeURI() in Cordova FileUpload plugin**
  
  ### Update the Mobile Application
  
@@ -63,12 +63,12 @@ Once deployment to Bluemix is completed, you can view the deployed application a
 ```bash
 git clone https://github.com/RiyaMRoy04/CalorieCounterApp.git
 ```
-Go to the project's root folder on your system and navigate to mobile/www/js/index.js
+Go to the project's root folder on your system and navigate to mobile/www/config.json
  
- **Update SERVER URL -> Bluemix Server URL 
- (It is the URL of the server to receive the image file for analyzing image using Visual Recognition, as encoded by encodeURI())** 
+ **Update "BLUEMIX_SERVER_URL" -> Bluemix Server URL 
+ (It is the URL of the server to receive the image file for analyzing image using Visual Recognition, as encoded by encodeURI() in Cordova FileUpload plugin)** 
  
- **APP ID -> Your Nutritionix APP ID and APP KEY -> Your Nutritionix APP Key** 
+ **"NUTRITIONIX_APP_KEY" -> Your Nutritionix APP KEY and "NUTRITIONIX_APP_ID" -> Your Nutritionix APP ID** 
  
  ### Run the Mobile Application
  
