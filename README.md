@@ -1,15 +1,15 @@
 # Create a calorie counter mobile app using Watson Visual Recognition
 
-In this developer journey, we will create a calorie counter mobile app using Apache Cordova, Node.JS and Watson Visual Recognition.This mobile application analyzes the captured image(food) using Watson Visual Recognition and extracts nutritional information.
+In this developer journey, we will create a calorie counter mobile app using Apache Cordova, Node.js and Watson Visual Recognition. This mobile app extracts nutritional information from captured images of food items. 
 
-![Architecture Diagram](https://github.com/RiyaMRoy04/CalorieCounterApp/blob/master/images/arch_diagram.png "Architecture_diagram")
+Currently this mobile app only runs on Android, but can be easily ported to iOS.
+
+![](https://github.com/IBM/CalorieCounterApp/blob/master/images/arch_diagram.png)
 
 ## Flow
 
-1. User interacts with the mobile app and captures an image.
-    
+1. User interacts with the mobile app and captures an image.  
 2. The image is passed to the server application which uses Watson Visual Recognition Service to analyze the images and Nutritionix API to provide nutritional information.
-    
 3. Data is returned to the mobile app for display.
 
 ## With Watson
@@ -18,103 +18,187 @@ Want to take your Watson app to the next level? Looking to leverage Watson Brand
 
 ## Included components
 
-* Watson Visual Recognition: Visual Recognition understands the contents of images - visual concepts tag the image, find human faces, approximate age and gender, and find similar images in a collection.
-
-* Nutritionix API: The largest verified database of nutrition information.
+* [Watson Visual Recognition](https://www.ibm.com/watson/developercloud/visual-recognition.html): Visual Recognition understands the contents of images - visual concepts tag the image, find human faces, approximate age and gender, and find similar images in a collection.
 
 ## Featured Technologies
 
 * Mobile: Systems of engagement are increasingly using mobile technology as the platform for delivery.
+* Nutritionix API: The largest verified database of nutrition information.
+* [Node.js](https://nodejs.org/): An asynchronous event driven JavaScript runtime, designed to build scalable applications.
 
-* Node.js: An open-source JavaScript run-time environment for executing server-side JavaScript code.
+# Watch the Video
 
+!!! COMING SOON
 
-## Prerequisite
+# Steps
 
-* Obtain a Nutritionix API Key: For this project, you'll need an API Key from Nutritionix, so that app can have access to nutritional information of analysed image. Instructions for obtaining a key can be found [here](https://developer.nutritionix.com/). **Make note of the API key for later use in your mobile application.**
+This journey contains several pieces. The app server communicates with the Watson Visual Recognition service. The mobile application is built locally and run on the Android phone.
 
-If you haven't so yet, you also need to download and install Node.js and cordova module. Follow steps below to install
- 
- 1. INSTALL NODE.JS- Download and install [Node.js](https://nodejs.org/en/download/). On installation you should be able to invoke node and npm on your command line.
- 
- 2. INSTALL CORDOVA CLI- Install the cordova module using npm utility of Node.js. The cordova module will automatically be downloaded by the npm utility. Follow the steps [here](https://cordova.apache.org/docs/en/latest/guide/cli/#installing-the-cordova-cli) to install the corodva module. Check if you satisfy requirements for building the platform [here](https://cordova.apache.org/docs/en/latest/guide/cli/#install-pre-requisites-for-building)
- 
- 3. INSTALL REQUIREMENTS FOR BUILDING CORDOVA APP- Few requirements(JDK,Android SDK) have to be satisfied to build the cordova project. Cordova for Android requires the Android SDK and requirements can be installed from [here](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#installing-the-requirements)
+## Deploy the Server Application to Bluemix
 
-## Steps
+[![Deploy to Bluemix](https://deployment-tracker.mybluemix.net/stats/3999122db8b59f04eecad8d229814d83/button.svg)](https://bluemix.net/deploy?repository=https://github.com/IBM/CalorieCounterApp.git)
 
-Use the following steps to deploy the application
-- Deploy the Server Application
-- Update the Mobile Application
-- Run the Mobile Application
+1. Press the above ``Deploy to Bluemix`` button and then click on ``Deploy``.
 
-### Deploy the Server Application
+2. In Toolchains, click on Delivery Pipeline to watch while the app is deployed. Once deployed, the app can be viewed by clicking 'View app'.
 
-#### Using the Deploy to Bluemix button
-Clicking on the button below creates a Bluemix DevOps Toolchain and deploys this application to Bluemix. The `manifest.yml` file [included in the repo] is parsed to obtain the name of the application, configuration details, and the list of services that should be provisioned. For further details on the structure of the `manifest.yml` file, see the [Cloud Foundry documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html#minimal-manifest).
+![](doc/source/images/toolchain-pipeline.png)
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/RiyaMRoy04/CalorieCounterApp.git)
+3. To see the app and services created and configured for this journey, use the Bluemix dashboard. The app is named `CalorieCounterApp` with a unique suffix. The following services are created and easily identified by the `cca-` prefix:
+    * cca-visual
 
-Once deployment to Bluemix is completed, you can view the deployed application and services from your bluemix account.
-**Make note of the URL for later use in mobile application. It is the URL of the server to receive the image file for analyzing image using Visual Recognition, as encoded by encodeURI() in Cordova FileUpload plugin**
- 
- ### Update the Mobile Application
- 
- Execute the following command to clone the Git repository:
+> Note: Make note of the CalorieCounterApp URL route - it will be required for later use to run the mobile app.     
 
-```bash
-git clone https://github.com/RiyaMRoy04/CalorieCounterApp.git
+To complete the installation, perform the following steps:
+
+1. [Clone the repo](#1-clone-the-repo)
+2. [Obtain a Nutritionix API ID and key](#2-obtain-a-nutritionix-api-id-and-key)
+3. [Update config values for the Mobile App](#3-update-config-values-for-the-mobile-app)
+4. [Install Android Mobile Development Framework](#4-install-android-mobile-development-framework)
+5. [Add Android platform and plug-ins](#5-add-android-platform-and-plug-ins)
+6. [Setup your Android phone](#6-setup-your-android-phone)
+7. [Build and run the mobile app](#7-build-and-run-the-mobile-app)
+
+## 1. Clone the repo
+
+Clone the `CalorieCounterApp`repo locally. In a terminal, run:
+
+  `$ git clone https://github.com/IBM/CalorieCounterApp.git`
+
+## 2. Obtain a Nutritionix API ID and key
+
+Nutritionix data is used to gather nutritional information of an analyzed image. Instructions for obtaining a key can be found at [Nutritionix.com](https://developer.nutritionix.com/). 
+
+> Note: Make note of the API ID and key - they will be required for later use in the mobile app.
+
+## 3. Update config values for the Mobile App
+
+Edit `mobile/www/config.json` and update the setting with the values retrieved previously.
+
 ```
-Go to the project's root folder on your system and navigate to mobile/www/config.json
- 
- **Update "BLUEMIX_SERVER_URL" -> Bluemix Server URL 
- (It is the URL of the server to receive the image file for analyzing image using Visual Recognition, as encoded by encodeURI() in Cordova FileUpload plugin)** 
- 
- **"NUTRITIONIX_APP_KEY" -> Your Nutritionix APP KEY and "NUTRITIONIX_APP_ID" -> Your Nutritionix APP ID** 
- 
- ### Run the Mobile Application
- 
- *All subsequent commands need to be run within the project's directory, or any subdirectories:* 
- 
- Here it will be, ``` cd CalorieCounterApp/mobile ```
- 
- 1. Add the platforms that you want to target your app. We will add the 'android' platform and ensure they get saved to config.xml and package.json.
-      ```
-      cordova platform add android
-      ```
- Check if you satisfy requirements for building the platform [here](https://cordova.apache.org/docs/en/latest/guide/cli/#install-pre-requisites-for-building)
- 
- 2. For the app to access device-level features, you need to add plugins:
-   
-      ```
-      cordova plugin add cordova-plugin-camera
+"BLUEMIX_SERVER_URL": "<add-bluemix-server-url>",
+"NUTRITIONIX_APP_KEY":"<add-nutritionix-app-key>",
+"NUTRITIONIX_APP_ID":"<add-nutritionix-app-id>"
+```
+## 4. Install Android Mobile Development Framework
 
-      cordova plugin add cordova-plugin-file-transfer
-      ```
- 3. Run the following command to build the project for android platform:
-   
-      ```
-      cordova build android
-      ```
- 4. Plug your mobile device using USB into your computer(For phones with Android OS you will have to enable Developer Options in your mobile) and test the app directly by issuing the command
- 
-      ```
-      cordova run android
-      ```
- 
-  ## Sample Output
+For this journey, we will be using the Cordova Android framework.
+
+Installation instruction can be found on the [Cordova Android Platform Guide](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html).
+
+This installation will require installing the [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) as well as [Android Studio](https://developer.android.com/studio/index.html). 
+
+From `Android Studio`, download and install the desired API Level for the SDK. To do this:
+
+* Launch `Android Studio` and accept all defaults.
+* Click on the SDK Manager Icon in the toolbar.
+* Navigate to `Appearance & Behavior` -> `System Settings` -> `Android SDK`
+* Select desired API Levels (select all >= 23).
+* Click apply to download and install. 
+
+Once you have completed all of the required installs and setup, you should have the following environment variables set:
+```
+JAVA_HOME
+ANDROID_HOME
+ANDROID_SDK_HOME
+PATH
+``` 
+> Note: For additonal help setting these environment variables, refer to the  [Troubleshooting](#troubleshooting) section below.
+
+### 5. Add Android platform and plug-ins
+
+Add the Android platform as the target for your mobile app. Then install plug-ins to provide access to device-level features.
+
+```
+$ cd mobile
+$ cordova platform add android
+
+# ensure that everything has been installed correctly
+$ cordova requirements
+
+$ cordova plugin add cordova-plugin-camera
+$ cordova plugin add cordova-plugin-file-transfer
+```
+
+### 6. Setup your Android phone
+
+In order to run the mobile app on your phone, you will need to enable `developer options` and `web debugging`. 
+
+> Note: Please refer to documentation on your specific phone to set these options.
+
+Attach your Android phone to your computer.
+
+Install [Android File Transfer](https://www.android.com/filetransfer/) on your computer to enable file transfer between your computer and phone. 
+
+### 7. Build and run the mobile app
+
+```
+$ cd mobile
+$ cordova build android
+$ cordova run android
+```
+
+At this point, the app named `CalorieCounter` should come up on your phone. Press the `Capture Image` button to transfer to your phone camera. Take a photo of a food item and press `OK`. Analsis data will then be displayed.
+
+
+# Sample Output
   
-  <img src="images/output1.jpg" width="250">  <img src="images/output2.jpg" width="250">
+<img src="images/output1.jpg" width="250">  <img src="images/output2.jpg" width="250">
   
-  ## Watch the video
+# Links
+
+* [Watson Node.js SDK](https://github.com/watson-developer-cloud/node-sdk)
+
+# Troubleshooting
+
+* `cordova run android` error: Failure [INSTALL_FAILED_UPDATE_INCOMPATIBLE]
+
+> The `Calorie Counter` app is already installed on your phone and incompatible with the version you are now trying to run. Uninstall the current version and try again.
+
+* `cordova run android` error: No target specified and no devices found, deploying to emulator
+
+> Ensure that your phone is plugged into your computer and you can access it from the Android File Transfer utility (see Step #6 above).
+
+* How to determine proper values for environment variables:
+
+Open `Android Studio` and navigate to `File` -> `Project Structure` -> `SDK 
+Location`. This location value will serve as the base for your environement variables. For example, if the location is `/users/joe/Android/sdk`, then:
+
+```
+export ANDROID_HOME=/users/joe/Android/sdk
+export ANDROID_SDK_HOME=/users/joe/Android/sdk/platforms/android-<api-level> 
+export PATH=${PATH}:/users/joe/Android/sdk/platform-tools:/users/joe/Android/sdk/tools
+```
+
+# License
   
-  ## Links
-  
-  
-  ## Troubleshooting
-  
-  ## License
-  
-  Apache 2.0
-  
-  
+[Apache 2.0](LICENSE)
+
+# Privacy Notice
+
+If using the Deploy to Bluemix button some metrics are tracked, the following
+information is sent to a [Deployment Tracker](https://github.com/IBM-Bluemix/cf-deployment-tracker-service) service
+on each deployment:
+
+* Node.js package version
+* Node.js repository URL
+* Application Name (`application_name`)
+* Application GUID (`application_id`)
+* Application instance index number (`instance_index`)
+* Space ID (`space_id`)
+* Application Version (`application_version`)
+* Application URIs (`application_uris`)
+* Labels of bound services
+* Number of instances for each bound service and associated plan information
+
+This data is collected from the `package.json` file in the sample application and the ``VCAP_APPLICATION``
+and ``VCAP_SERVICES`` environment variables in IBM Bluemix and other Cloud Foundry platforms. This
+data is used by IBM to track metrics around deployments of sample applications to IBM Bluemix to
+measure the usefulness of our examples, so that we can continuously improve the content we offer
+to you. Only deployments of sample applications that include code to ping the Deployment Tracker
+service will be tracked.
+
+## Disabling Deployment Tracking
+
+To disable tracking, simply remove ``cf_deployment_tracker.track()`` from the
+``app.js`` file in the top level directory.
