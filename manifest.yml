@@ -9,6 +9,6 @@ applications:
   instances: 1
   name: calorie-counter-app
   disk_quota: 512M
-  random-route: true
+  random-route: false
   services:
   - cca-visual
