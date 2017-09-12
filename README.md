@@ -96,7 +96,7 @@ Go to the project's root folder on your system and navigate to mobile/www/config
       ```
       cordova build android
       ```
- 4. Plug the mobile device into your computer and test the app directly by issuing the command
+ 4. Plug your mobile device using USB into your computer(For phones with Android OS you will have to enable Developer Options in your mobile) and test the app directly by issuing the command
  
       ```
       cordova run android
