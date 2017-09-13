@@ -23,7 +23,7 @@ Want to take your Watson app to the next level? Looking to leverage Watson Brand
 ## Featured Technologies
 
 * Mobile: Systems of engagement are increasingly using mobile technology as the platform for delivery.
-* Nutritionix API: The largest verified database of nutrition information.
+* [Nutritionix API](https://developer.nutritionix.com/): The largest verified database of nutrition information.
 * [Node.js](https://nodejs.org/): An asynchronous event driven JavaScript runtime, designed to build scalable applications.
 
 # Watch the Video
