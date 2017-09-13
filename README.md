@@ -79,8 +79,8 @@ Edit `mobile/www/config.json` and update the setting with the values retrieved p
 
 ```
 "BLUEMIX_SERVER_URL": "<add-bluemix-server-url>",
-"NUTRITIONIX_APP_KEY":"<add-nutritionix-app-key>",
-"NUTRITIONIX_APP_ID":"<add-nutritionix-app-id>"
+"NUTRITIONIX_APP_ID": "<add-nutritionix-app-id>",
+"NUTRITIONIX_APP_KEY": "<add-nutritionix-app-key>"
 ```
 
 ## 4. Install Android Mobile Development Framework
