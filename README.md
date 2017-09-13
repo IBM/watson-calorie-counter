@@ -40,7 +40,7 @@ This journey contains several pieces. The app server communicates with the Watso
 
 1. Press the above ``Deploy to Bluemix`` button and then click on ``Deploy``.
 
-2. In Toolchains, click on Delivery Pipeline to watch while the app is deployed. Once deployed, the app can be viewed by clicking 'View app'.
+2. In Toolchains, click on Delivery Pipeline to watch while the app is deployed.
 
 ![](doc/source/images/toolchain-pipeline.png)
 
