@@ -63,7 +63,9 @@ To complete the installation, perform the following steps:
 
 Clone the `watson-calorie-counter`repo locally. In a terminal, run:
 
-  `$ git clone https://github.com/IBM/watson-calorie-counter.git`
+```
+$ git clone https://github.com/IBM/watson-calorie-counter.git
+```
 
 ## 2. Obtain a Nutritionix API ID and key
 
