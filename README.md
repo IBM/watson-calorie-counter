@@ -4,7 +4,7 @@ In this developer journey, we will create a calorie counter mobile app using Apa
 
 Currently this mobile app only runs on Android, but can be easily ported to iOS.
 
-![](https://github.com/IBM/CalorieCounterApp/blob/master/images/arch_diagram.png)
+![](doc/source/images/architecture.png)
 
 ## Flow
 
@@ -36,7 +36,7 @@ This journey contains several pieces. The app server communicates with the Watso
 
 ## Deploy the Server Application to Bluemix
 
-[![Deploy to Bluemix](https://deployment-tracker.mybluemix.net/stats/3999122db8b59f04eecad8d229814d83/button.svg)](https://bluemix.net/deploy?repository=https://github.com/IBM/CalorieCounterApp.git)
+[![Deploy to Bluemix](https://deployment-tracker.mybluemix.net/stats/3999122db8b59f04eecad8d229814d83/button.svg)](https://bluemix.net/deploy?repository=https://github.com/IBM/watson-calorie-counter.git)
 
 1. Press the above ``Deploy to Bluemix`` button and then click on ``Deploy``.
 
@@ -44,10 +44,10 @@ This journey contains several pieces. The app server communicates with the Watso
 
 ![](doc/source/images/toolchain-pipeline.png)
 
-3. To see the app and services created and configured for this journey, use the Bluemix dashboard. The app is named `CalorieCounterApp` with a unique suffix. The following services are created and easily identified by the `cca-` prefix:
-    * cca-visual
+3. To see the app and services created and configured for this journey, use the Bluemix dashboard. The app is named `watson-calorie-counter` with a unique suffix. The following services are created and easily identified by the `cca-` prefix:
+    * cca-visual-recognition
 
-> Note: Make note of the CalorieCounterApp URL route - it will be required for later use to run the mobile app.     
+> Note: Make note of the `watson-calorie-counter` URL route - it will be required for later use in the mobile app.     
 
 To complete the installation, perform the following steps:
 
@@ -61,9 +61,9 @@ To complete the installation, perform the following steps:
 
 ## 1. Clone the repo
 
-Clone the `CalorieCounterApp`repo locally. In a terminal, run:
+Clone the `watson-calorie-counter`repo locally. In a terminal, run:
 
-  `$ git clone https://github.com/IBM/CalorieCounterApp.git`
+  `$ git clone https://github.com/IBM/watson-calorie-counter.git`
 
 ## 2. Obtain a Nutritionix API ID and key
 
@@ -138,12 +138,12 @@ $ cordova build android
 $ cordova run android
 ```
 
-At this point, the app named `CalorieCounter` should come up on your phone. Press the `Capture Image` button to transfer to your phone camera. Take a photo of a food item and press `OK`. Analsis data will then be displayed.
+At this point, the app named `Calorie Counter` should come up on your phone. Press the `Capture Image` button to transfer to your phone camera. Take a photo of a food item and press `OK`. Analysis data will then be displayed.
 
 
 # Sample Output
   
-<img src="images/output1.jpg" width="250">  <img src="images/output2.jpg" width="250">
+<img src="doc/source/images/output1.jpg" width="250">  <img src="doc/source/images/output2.jpg" width="250">
   
 # Links
 

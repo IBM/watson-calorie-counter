@@ -1,14 +1,14 @@
 ---
 declared-services:
-  cca-visual:
+  cca-visual-recognition:
     label: watson_vision_combined
     plan: free
 applications:
 - path: ./server
   memory: 256M
   instances: 1
-  name: calorie-counter-app
+  name: watson-calorie-counter
   disk_quota: 512M
   random-route: false
   services:
-  - cca-visual
+  - cca-visual-recognition
