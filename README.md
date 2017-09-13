@@ -44,8 +44,8 @@ This journey contains several pieces. The app server communicates with the Watso
 
 ![](doc/source/images/toolchain-pipeline.png)
 
-3. To see the app and services created and configured for this journey, use the Bluemix dashboard. The app is named `watson-calorie-counter` with a unique suffix. The following services are created and easily identified by the `cca-` prefix:
-    * cca-visual-recognition
+3. To see the app and services created and configured for this journey, use the Bluemix dashboard. The app is named `watson-calorie-counter` with a unique suffix. The following services are created and easily identified by the `wcc-` prefix:
+    * wcc-visual-recognition
 
 > Note: Make note of the `watson-calorie-counter` URL route - it will be required for later use in the mobile app.     
 
