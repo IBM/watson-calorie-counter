@@ -1,6 +1,6 @@
 ---
 declared-services:
-  cca-visual-recognition:
+  wcc-visual-recognition:
     label: watson_vision_combined
     plan: free
 applications:
@@ -11,4 +11,4 @@ applications:
   disk_quota: 512M
   random-route: false
   services:
-  - cca-visual-recognition
+  - wcc-visual-recognition
