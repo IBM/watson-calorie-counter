@@ -26,13 +26,13 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Calorie Counter</title>
     </head>
-    <body style="text-align: center;">
+    <body>
         <img src="img/cc_logo.jpg" alt="Calorie_Counterlogo" height="150" width="150">
         <h2>Calorie Counter</h2>
 
         <!-- Capture and display image -->
         <div>
-            <button type="button" id="captureImage" style="font-size: 2em;">Capture Image</button>
+            <button type="button" id="captureImage">Capture Image</button>
         </div>
         <div>
             <img id="myPhoto" />
@@ -40,7 +40,7 @@
 
         <!-- Display Watson Visual Recognition response -->
         <h2>Watson sees...</h2>
-        <table id="labels" style="border: 1px solid black"></table>
+        <table id="labels"></table>
 
         <!--Display Nutritionix API response-->
         <h2>Calories</h2>

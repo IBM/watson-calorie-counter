@@ -119,6 +119,7 @@ html, body {
     margin: 0;
     padding: 20px;
     font-family: sans-serif;
+    text-align: center;
 }
 
 img {
@@ -127,4 +128,11 @@ img {
     margin: 0 auto;
     max-height: 100%;
     max-width: 100%;
+}
+table {
+    margin: 0 auto;
+    border: 1px solid black;
+}
+button {
+    font-size: 2em;
 }
