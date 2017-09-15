@@ -162,11 +162,7 @@ img {
     max-width: 100%;
 }
 table {
-    margin: 20px auto;
-    border: 1px solid black;
+    width: 100%;
+    margin: 0 auto;
+    border: none;
 }
-button {
-    font-size: 2em;
-    margin: 20px;
-}
-
