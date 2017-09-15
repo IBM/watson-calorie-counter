@@ -27,24 +27,25 @@
         <title>Calorie Counter</title>
     </head>
     <body>
-        <img src="img/cc_logo.jpg" alt="Calorie_Counterlogo" height="150" width="150">
-        <h2>Calorie Counter</h2>
+        <header>
+            <img id="logo" src="img/cc_logo.jpg" alt="Calorie_Counterlogo">
+            <h1>Calorie Counter</h1>
+            <input type="image" id="captureImage" src="img/camera.png" />
+        </header>
+        <article>
+            <!-- Capture and display image -->
+            <div>
+                <img id="myPhoto" />
+            </div>
 
-        <!-- Capture and display image -->
-        <div>
-            <button type="button" id="captureImage">Capture Image</button>
-        </div>
-        <div>
-            <img id="myPhoto" />
-        </div>
+            <!-- Display Watson Visual Recognition response -->
+            <h2>Watson sees...</h2>
+            <table id="labels"></table>
 
-        <!-- Display Watson Visual Recognition response -->
-        <h2>Watson sees...</h2>
-        <table id="labels"></table>
-
-        <!--Display Nutritionix API response-->
-        <h2>Calories</h2>
-        <div class="resultContainer"></div>
+            <!--Display Nutritionix API response-->
+            <h2>Calories</h2>
+            <div class="resultContainer"></div>
+        </article>
 
         <script src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="cordova.js"></script>

@@ -102,13 +102,13 @@ h1 {
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 @-webkit-keyframes fade {
     from { opacity: 1.0; }
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
@@ -117,11 +117,43 @@ h1 {
 html, body {
     height: 100%;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     font-family: sans-serif;
     text-align: center;
 }
-
+header {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+}
+header img, header h1 {
+    float: left;
+    display: block;
+}
+header img#logo {
+    width: 28px;
+    height: 28px;
+    margin: 8px;
+}
+header h1 {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    margin: 8px 0;
+}
+#captureImage {
+    width: 32px;
+    height: 32px;
+    margin: 4px 8px;
+    float: right;
+    border: none;
+    cursor: pointer;
+}
+article {
+    margin-top: 44px;
+}
 img {
     padding: 0;
     display: block;
@@ -130,10 +162,7 @@ img {
     max-width: 100%;
 }
 table {
+    width: 100%;
     margin: 0 auto;
-    border: 1px solid black;
-}
-button {
-    font-size: 2em;
-    margin: 20px;
+    border: none;
 }
