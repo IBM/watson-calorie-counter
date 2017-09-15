@@ -102,13 +102,13 @@ h1 {
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 @-webkit-keyframes fade {
     from { opacity: 1.0; }
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
@@ -117,11 +117,10 @@ h1 {
 html, body {
     height: 100%;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     font-family: sans-serif;
     text-align: center;
 }
-
 img {
     padding: 0;
     display: block;
@@ -130,7 +129,7 @@ img {
     max-width: 100%;
 }
 table {
-    margin: 0 auto;
+    margin: 20px auto;
     border: 1px solid black;
 }
 button {
