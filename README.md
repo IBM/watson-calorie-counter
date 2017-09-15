@@ -1,6 +1,6 @@
 # Create a calorie counter mobile app using Watson Visual Recognition
 
-In this developer journey, we will create a calorie counter mobile app using Apache Cordova, Node.js and Watson Visual Recognition. This mobile app extracts nutritional information from captured images of food items. 
+In this developer journey, we will create a calorie counter mobile app using Apache Cordova, Node.js and Watson Visual Recognition. This mobile app extracts nutritional information from captured images of food items.
 
 Currently this mobile app only runs on Android, but can be easily ported to iOS.
 
@@ -8,7 +8,7 @@ Currently this mobile app only runs on Android, but can be easily ported to iOS.
 
 ## Flow
 
-1. User interacts with the mobile app and captures an image.  
+1. User interacts with the mobile app and captures an image.
 2. The image is passed to the server application which uses Watson Visual Recognition Service to analyze the images and Nutritionix API to provide nutritional information.
 3. Data is returned to the mobile app for display.
 
@@ -23,12 +23,12 @@ Want to take your Watson app to the next level? Looking to leverage Watson Brand
 ## Featured Technologies
 
 * Mobile: Systems of engagement are increasingly using mobile technology as the platform for delivery.
-* Nutritionix API: The largest verified database of nutrition information.
+* [Nutritionix API](https://developer.nutritionix.com/): The largest verified database of nutrition information.
 * [Node.js](https://nodejs.org/): An asynchronous event driven JavaScript runtime, designed to build scalable applications.
 
 # Watch the Video
 
-!!! COMING SOON
+TODO
 
 # Steps
 
@@ -40,14 +40,14 @@ This journey contains several pieces. The app server communicates with the Watso
 
 1. Press the above ``Deploy to Bluemix`` button and then click on ``Deploy``.
 
-2. In Toolchains, click on Delivery Pipeline to watch while the app is deployed. Once deployed, the app can be viewed by clicking 'View app'.
+2. In Toolchains, click on Delivery Pipeline to watch while the app is deployed.
 
 ![](doc/source/images/toolchain-pipeline.png)
 
 3. To see the app and services created and configured for this journey, use the Bluemix dashboard. The app is named `watson-calorie-counter` with a unique suffix. The following services are created and easily identified by the `wcc-` prefix:
     * wcc-visual-recognition
 
-> Note: Make note of the `watson-calorie-counter` URL route - it will be required for later use in the mobile app.     
+> Note: Make note of the `watson-calorie-counter` URL route - it will be required for later use in the mobile app.
 
 To complete the installation, perform the following steps:
 
@@ -63,11 +63,13 @@ To complete the installation, perform the following steps:
 
 Clone the `watson-calorie-counter`repo locally. In a terminal, run:
 
-  `$ git clone https://github.com/IBM/watson-calorie-counter.git`
+```
+$ git clone https://github.com/IBM/watson-calorie-counter.git
+```
 
 ## 2. Obtain a Nutritionix API ID and key
 
-Nutritionix data is used to gather nutritional information of an analyzed image. Instructions for obtaining a key can be found at [Nutritionix.com](https://developer.nutritionix.com/). 
+Nutritionix data is used to gather nutritional information of an analyzed image. Instructions for obtaining a key can be found at [Nutritionix.com](https://developer.nutritionix.com/).
 
 > Note: Make note of the API ID and key - they will be required for later use in the mobile app.
 
@@ -77,16 +79,17 @@ Edit `mobile/www/config.json` and update the setting with the values retrieved p
 
 ```
 "BLUEMIX_SERVER_URL": "<add-bluemix-server-url>",
-"NUTRITIONIX_APP_KEY":"<add-nutritionix-app-key>",
-"NUTRITIONIX_APP_ID":"<add-nutritionix-app-id>"
+"NUTRITIONIX_APP_ID": "<add-nutritionix-app-id>",
+"NUTRITIONIX_APP_KEY": "<add-nutritionix-app-key>"
 ```
+
 ## 4. Install Android Mobile Development Framework
 
 For this journey, we will be using the Cordova Android framework.
 
 Installation instruction can be found on the [Cordova Android Platform Guide](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html).
 
-This installation will require installing the [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) as well as [Android Studio](https://developer.android.com/studio/index.html). 
+This installation will require installing the [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) as well as [Android Studio](https://developer.android.com/studio/index.html).
 
 From `Android Studio`, download and install the desired API Level for the SDK. To do this:
 
@@ -94,15 +97,17 @@ From `Android Studio`, download and install the desired API Level for the SDK. T
 * Click on the SDK Manager Icon in the toolbar.
 * Navigate to `Appearance & Behavior` -> `System Settings` -> `Android SDK`
 * Select desired API Levels (select all >= 23).
-* Click apply to download and install. 
+* Click apply to download and install.
 
 Once you have completed all of the required installs and setup, you should have the following environment variables set:
+
 ```
 JAVA_HOME
 ANDROID_HOME
 ANDROID_SDK_HOME
 PATH
-``` 
+```
+
 > Note: For additonal help setting these environment variables, refer to the  [Troubleshooting](#troubleshooting) section below.
 
 ### 5. Add Android platform and plug-ins
@@ -122,13 +127,13 @@ $ cordova plugin add cordova-plugin-file-transfer
 
 ### 6. Setup your Android phone
 
-In order to run the mobile app on your phone, you will need to enable `developer options` and `web debugging`. 
+In order to run the mobile app on your phone, you will need to enable `developer options` and `web debugging`.
 
 > Note: Please refer to documentation on your specific phone to set these options.
 
 Attach your Android phone to your computer.
 
-Install [Android File Transfer](https://www.android.com/filetransfer/) on your computer to enable file transfer between your computer and phone. 
+Install [Android File Transfer](https://www.android.com/filetransfer/) on your computer to enable file transfer between your computer and phone.
 
 ### 7. Build and run the mobile app
 
@@ -140,11 +145,10 @@ $ cordova run android
 
 At this point, the app named `Calorie Counter` should come up on your phone. Press the `Capture Image` button to transfer to your phone camera. Take a photo of a food item and press `OK`. Analysis data will then be displayed.
 
-
 # Sample Output
-  
+
 <img src="doc/source/images/output1.jpg" width="250">  <img src="doc/source/images/output2.jpg" width="250">
-  
+
 # Links
 
 * [Watson Node.js SDK](https://github.com/watson-developer-cloud/node-sdk)
@@ -161,17 +165,17 @@ At this point, the app named `Calorie Counter` should come up on your phone. Pre
 
 * How to determine proper values for environment variables:
 
-Open `Android Studio` and navigate to `File` -> `Project Structure` -> `SDK 
+Open `Android Studio` and navigate to `File` -> `Project Structure` -> `SDK
 Location`. This location value will serve as the base for your environement variables. For example, if the location is `/users/joe/Android/sdk`, then:
 
 ```
 export ANDROID_HOME=/users/joe/Android/sdk
-export ANDROID_SDK_HOME=/users/joe/Android/sdk/platforms/android-<api-level> 
+export ANDROID_SDK_HOME=/users/joe/Android/sdk/platforms/android-<api-level>
 export PATH=${PATH}:/users/joe/Android/sdk/platform-tools:/users/joe/Android/sdk/tools
 ```
 
 # License
-  
+
 [Apache 2.0](LICENSE)
 
 # Privacy Notice
