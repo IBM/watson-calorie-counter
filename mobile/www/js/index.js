@@ -33,19 +33,19 @@ function onDevice(){
            format: "json"
         }).done(function(data){
           config = data;
-          console.log(config);
-            apiURL = config['BLUEMIX_SERVER_URL'];
-        appId = config['NUTRITIONIX_APP_KEY'];
-        appKey = config['NUTRITIONIX_APP_ID'];
+          //console.log(config);
+        apiURL = config['BLUEMIX_SERVER_URL'];
+        appId = config['NUTRITIONIX_APP_ID'];
+        appKey = config['NUTRITIONIX_APP_KEY'];
         });
     
     
     
     var win = function (r) {
         
-    console.log("Code = " + r.responseCode);
-    console.log("Response = " + r.response);
-    console.log("Sent = " + r.bytesSent);
+    //console.log("Code = " + r.responseCode);
+    //console.log("Response = " + r.response);
+    //console.log("Sent = " + r.bytesSent);
        
     //Watson Visual Recognition response display   
         
@@ -117,6 +117,12 @@ function onDevice(){
     //Nutritionix API call
     
     function getResult(userInput) {
+         if(userInput=="non-food")
+          {
+             $('.resultContainer').append('It is Non-food Item!') 
+          }
+      
+      else{
 	       var storedSearchItem;
 	       $('.resultContainer').html('');
 	       $.ajax({
@@ -125,19 +131,22 @@ function onDevice(){
 		      url: 'https://api.nutritionix.com/v1_1/search/'+userInput+'?'+
 		      'fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&appId='+appId+'&appKey='+appKey+'',
 		      success: function(d) {
-                  console.log(d);
+                  // console.log(d);
 			storedSearchItem = d.hits;
 		  }
 	   });
-
+      }
 	   storedSearchItem.map(function(item) {
 		var x = item.fields
 		$('.resultContainer').append(
-			'<div class="itemBar">'+
+			'<div>'+
 				'<h2>' + x.item_name + '<h2>' +
-				'<h3>Calories: ' + x.nf_calories + '<h3>' +
-				'<h3>Serving Size: ' + x.nf_serving_size_qty + ' ' + x.nf_serving_size_unit +'<h3>' +
-				'<h3>Total Fat: ' + x.nf_total_fat + '<h3>' +
+				'Calories: ' + x.nf_calories + '' +
+                '<br/>'+
+				'Serving Size: ' + x.nf_serving_size_qty + ' ' + x.nf_serving_size_unit +'' +
+                '<br/>'+
+				'Total Fat: ' + x.nf_total_fat + '' +
+                '<hr/>'+
 			'</div>'
 			);
 	       });
