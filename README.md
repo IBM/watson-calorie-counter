@@ -96,7 +96,7 @@ From `Android Studio`, download and install the desired API Level for the SDK. T
 * Launch `Android Studio` and accept all defaults.
 * Click on the SDK Manager Icon in the toolbar.
 * Navigate to `Appearance & Behavior` -> `System Settings` -> `Android SDK`
-* Select desired API Levels (select all >= 23).
+* Select Android 6.0 (Marshmallow) (API Level 23).
 * Click apply to download and install.
 
 Once you have completed all of the required installs and setup, you should have the following environment variables set:
