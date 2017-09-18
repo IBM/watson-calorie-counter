@@ -87,19 +87,25 @@ Edit `mobile/www/config.json` and update the setting with the values retrieved p
 
 For this journey, we will be using the Cordova Android framework.
 
-Installation instruction can be found on the [Cordova Android Platform Guide](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html).
+First you need to install the prerequisites, by following their respective documentation:
 
-This installation will require installing the [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) as well as [Android Studio](https://developer.android.com/studio/index.html).
+* [Node.js and npm](https://nodejs.org/en/download/) (`npm` version 4.5.0 or higher)
+* [Gradle](https://gradle.org/install/)
+* [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Android Studio](https://developer.android.com/studio/index.html)
+* [Cordova](https://cordova.apache.org/)
 
-From `Android Studio`, download and install the desired API Level for the SDK. To do this:
+The [Cordova Android Platform Guide](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html) provides additional installation instructions relevant to Android developers.
+
+Using `Android Studio`, download and install the desired API Level for the Android SDK. To do this:
 
 * Launch `Android Studio` and accept all defaults.
-* Click on the SDK Manager Icon in the toolbar.
+* Click on the `SDK Manager` icon in the toolbar.
 * Navigate to `Appearance & Behavior` -> `System Settings` -> `Android SDK`
 * Select Android 6.0 (Marshmallow) (API Level 23).
 * Click apply to download and install.
 
-Once you have completed all of the required installs and setup, you should have the following environment variables set:
+Once you have completed all of the required installs and setup, you should have the following environment variables set appropriately for your platform:
 
 ```
 JAVA_HOME
