@@ -117,10 +117,17 @@ Add the Android platform as the target for your mobile app. Then install plug-in
 ```
 $ cd mobile
 $ cordova platform add android
+```
 
-# ensure that everything has been installed correctly
+Ensure that everything has been installed correctly:
+
+```
 $ cordova requirements
+```
 
+Install the plugins required by the application:
+
+```
 $ cordova plugin add cordova-plugin-camera
 $ cordova plugin add cordova-plugin-file-transfer
 ```
