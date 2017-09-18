@@ -104,7 +104,6 @@ Once you have completed all of the required installs and setup, you should have 
 ```
 JAVA_HOME
 ANDROID_HOME
-ANDROID_SDK_HOME
 PATH
 ```
 
