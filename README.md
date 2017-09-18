@@ -127,23 +127,28 @@ $ cordova plugin add cordova-plugin-file-transfer
 
 ### 6. Setup your Android phone
 
-In order to run the mobile app on your phone, you will need to enable `developer options` and `web debugging`.
+In order to run the application on your Android device, you will need to be prepared to transfer the application's `.apk` file to your device (created in the next step). There are multiple ways for developers to achieve this.
+
+Android Studio will handle the transfer for you if you tether your Android device to your computer, and enable enable both `developer options` and `web debugging`.
 
 > Note: Please refer to documentation on your specific phone to set these options.
 
-Attach your Android phone to your computer.
-
-Install [Android File Transfer](https://www.android.com/filetransfer/) on your computer to enable file transfer between your computer and phone.
+For Mac users, [Android File Transfer](https://www.android.com/filetransfer/) will facilitate simple file transfers between your computer and Android device.
 
 ### 7. Build and run the mobile app
 
 ```
 $ cd mobile
 $ cordova build android
+```
+
+An `.apk` file should appear at `mobile/platforms/android/build/outputs/apk/android-debug.apk`, which contains the Android application. You can manually transfer the `.apk` to your device, or if your device is tethered (as described in the previous step), then you can run:
+
+```
 $ cordova run android
 ```
 
-At this point, the app named `Calorie Counter` should come up on your phone. Press the `Capture Image` button to transfer to your phone camera. Take a photo of a food item and press `OK`. Analysis data will then be displayed.
+At this point, the app named `Calorie Counter` should come up on your phone. Use the camera icon to take a photo of a food item, and allow Watson to analyze the image and fetch the calorie results.
 
 # Sample Output
 
