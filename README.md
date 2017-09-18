@@ -56,7 +56,7 @@ To complete the installation, perform the following steps:
 3. [Update config values for the Mobile App](#3-update-config-values-for-the-mobile-app)
 4. [Install Android Mobile Development Framework](#4-install-android-mobile-development-framework)
 5. [Add Android platform and plug-ins](#5-add-android-platform-and-plug-ins)
-6. [Setup your Android phone](#6-setup-your-android-phone)
+6. [Setup your Android device](#6-setup-your-android-device)
 7. [Build and run the mobile app](#7-build-and-run-the-mobile-app)
 
 ## 1. Clone the repo
@@ -137,7 +137,7 @@ $ cordova plugin add cordova-plugin-camera
 $ cordova plugin add cordova-plugin-file-transfer
 ```
 
-### 6. Setup your Android phone
+### 6. Setup your Android device
 
 In order to run the application on your Android device, you will need to be prepared to transfer the application's `.apk` file to your device (created in the next step). There are multiple ways for developers to achieve this.
 
