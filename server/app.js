@@ -14,33 +14,33 @@
 *  limitations under the License.
 */
 
-var application;
-
 const fs = require('fs');
+const watson = require('watson-developer-cloud');
+const express = require('express');
+const application = express();
+const formidable = require('formidable');
+const vcapServices = require("vcap_services");
+const credentials = vcapServices.getCredentials('watson_vision_combined');
 
-var watson = require('watson-developer-cloud');
-express = require('express');
-application = express();
-var formidable = require('formidable');
-var vcapServices = require("vcap_services");
 
-var credentials = vcapServices.getCredentials('watson_vision_combined');
-
-var visual_recognition = watson.visual_recognition({
+const visual_recognition = watson.visual_recognition({
     api_key: credentials.api_key,
     version: 'v3',
     version_date: '2016-05-20'
 });
 
+
 application.post('/uploadpic', function(req, result) {
     
-   var form = new formidable.IncomingForm();
+   const form = new formidable.IncomingForm();
     form.keepExtensions = true;
     form.parse(req, function(err, fields, files) {
         
-       var abc= JSON.parse(JSON.stringify(files));
+       const abc= JSON.parse(JSON.stringify(files));
+        
         var params = {
-            image_file: fs.createReadStream(abc.myPhoto.path)
+            image_file: fs.createReadStream(abc.myPhoto.path),
+           classifier_ids: ['food']
         };
      
     
@@ -50,7 +50,7 @@ application.post('/uploadpic', function(req, result) {
                     console.log(err);
             } else {
                 
-                var labelsvr = JSON.parse(JSON.stringify(res)).images[0].classifiers[0];
+                const labelsvr = JSON.parse(JSON.stringify(res)).images[0].classifiers[0];
                 result.send({data:labelsvr});
                 
             }
