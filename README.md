@@ -4,7 +4,7 @@ In this developer journey, we will create a calorie counter mobile app using Apa
 
 Currently this mobile app only runs on Android, but can be easily ported to iOS.
 
-![](doc/source/images/architecture.png)
+![Architecture diagram](doc/source/images/architecture.png)
 
 ## Flow
 
@@ -42,7 +42,7 @@ This journey contains several pieces. The app server communicates with the Watso
 
 2. In Toolchains, click on Delivery Pipeline to watch while the app is deployed.
 
-![](doc/source/images/toolchain-pipeline.png)
+![Toolchain pipeline](doc/source/images/toolchain-pipeline.png)
 
 3. To see the app and services created and configured for this journey, use the Bluemix dashboard. The app is named `watson-calorie-counter` with a unique suffix. The following services are created and easily identified by the `wcc-` prefix:
     * wcc-visual-recognition
@@ -164,7 +164,8 @@ At this point, the app named `Calorie Counter` should come up on your phone. Use
 
 # Sample Output
 
-<img src="doc/source/images/output1.jpg" width="250">  <img src="doc/source/images/output2.jpg" width="250">
+![Captured image](doc/source/images/output1.jpg)
+![Analysis](doc/source/images/output2.jpg)
 
 # Links
 
