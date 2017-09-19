@@ -33,25 +33,26 @@ function onDevice(){
            format: "json"
         }).done(function(data){
           config = data;
-          //console.log(config);
-        apiURL = config['BLUEMIX_SERVER_URL'];
-        appId = config['NUTRITIONIX_APP_ID'];
-        appKey = config['NUTRITIONIX_APP_KEY'];
+          console.log(config);
+            apiURL = config['BLUEMIX_SERVER_URL'];
+            appId = config['NUTRITIONIX_APP_ID'];
+            appKey = config['NUTRITIONIX_APP_KEY'];
         });
     
     
     
     var win = function (r) {
         
-    //console.log("Code = " + r.responseCode);
-    //console.log("Response = " + r.response);
-    //console.log("Sent = " + r.bytesSent);
+    console.log("Code = " + r.responseCode);
+    console.log("Response = " + r.response);
+    console.log("Sent = " + r.bytesSent);
        
     //Watson Visual Recognition response display   
         
     var Response =  JSON.parse((r.response)); 
                      
-            var html = "<table border='1|1'>";
+            var html ="<h2>Watson sees..</h2>";
+                html+="<table border='1|1'>";
                 html+="<tr>";
                 html+="<th>Class</th>";
                 html+="<th>Confidence score</th>";
@@ -71,6 +72,7 @@ function onDevice(){
                 document.getElementById("labels").innerHTML = html;  
        
                 var resultCalorie = Response.data.classes[0].class;
+                console.log(resultCalorie);
                 getResult(resultCalorie);
 
     }
@@ -115,32 +117,33 @@ function onDevice(){
     
 }
     //Nutritionix API call
-    
-    function getResult(userInput) {
-         if(userInput=="non-food")
+
+  function getResult(userInput) {
+      if(userInput=="non-food")
           {
+             $('.resultContainer').html(' ');
+             $('.resultContainer').html('<h2>Calories</h2>');
              $('.resultContainer').append('It is Non-food Item!') 
           }
       
       else{
 	       var storedSearchItem;
-	       $('.resultContainer').html('');
+	       $('.resultContainer').html('<h2>Calories</h2>');
 	       $.ajax({
 		      type: 'GET',
 		      async: false,
 		      url: 'https://api.nutritionix.com/v1_1/search/'+userInput+'?'+
 		      'fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&appId='+appId+'&appKey='+appKey+'',
 		      success: function(d) {
-                  // console.log(d);
+                  console.log(d);
 			storedSearchItem = d.hits;
 		  }
 	   });
-      }
 	   storedSearchItem.map(function(item) {
 		var x = item.fields
 		$('.resultContainer').append(
 			'<div>'+
-				'<h2>' + x.item_name + '<h2>' +
+				'<h3>' + x.item_name + '</h3>' +
 				'Calories: ' + x.nf_calories + '' +
                 '<br/>'+
 				'Serving Size: ' + x.nf_serving_size_qty + ' ' + x.nf_serving_size_unit +'' +
@@ -151,4 +154,4 @@ function onDevice(){
 			);
 	       });
             }
-    
+      }

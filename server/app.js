@@ -14,56 +14,50 @@
 *  limitations under the License.
 */
 
-const fs = require('fs');
-const watson = require('watson-developer-cloud');
-const express = require('express');
-const application = express();
-const formidable = require('formidable');
-const vcapServices = require("vcap_services");
-const credentials = vcapServices.getCredentials('watson_vision_combined');
+/*jslint node: true*/
+/*jslint es6 */
+"use strict";
 
+const fs = require("fs");
+const watson = require("watson-developer-cloud");
+const express = require("express");
+const application = express();
+const formidable = require("formidable");
+const vcapServices = require("vcap_services");
+const credentials = vcapServices.getCredentials("watson_vision_combined");
 
 const visual_recognition = watson.visual_recognition({
     api_key: credentials.api_key,
-    version: 'v3',
-    version_date: '2016-05-20'
+    version: "v3",
+    version_date: "2016-05-20"
 });
-
-
-application.post('/uploadpic', function(req, result) {
-    
-   const form = new formidable.IncomingForm();
+application.post("/uploadpic", function (req, result) {
+    const form = new formidable.IncomingForm();
     form.keepExtensions = true;
-    form.parse(req, function(err, fields, files) {
-        
-       const abc= JSON.parse(JSON.stringify(files));
-        
-        var params = {
-            image_file: fs.createReadStream(abc.myPhoto.path),
-           classifier_ids: ['food']
-        };
-     
-    
-        visual_recognition.classify(params, function(err, res) {
-            
-            if (err) {
+    form.parse(req, function (err, fields, files) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(fields);
+            const abc = JSON.parse(JSON.stringify(files));
+            var params = {
+                image_file: fs.createReadStream(abc.myPhoto.path),
+                classifier_ids: ["food"]
+            };
+            visual_recognition.classify(params, function (err, res) {
+                if (err) {
                     console.log(err);
-            } else {
-                
-                const labelsvr = JSON.parse(JSON.stringify(res)).images[0].classifiers[0];
-                result.send({data:labelsvr});
-                
-            }
-            
+                } else {
+                    const labelsvr = JSON.parse(JSON.stringify(res)).images[0].classifiers[0];
+                    result.send({data: labelsvr});
+                }
             });
-
-        });
-
+        }
     });
-    
-const port = process.env.PORT || process.env.VCAP_APP_PORT || 3000;
-
-application.listen(port, function() {
-  console.log('Server running on port: %d', port);
 });
+const port = process.env.PORT || process.env.VCAP_APP_PORT || 3000;
+application.listen(port, function () {
+    console.log("Server running on port: %d", port);
+});
+
 

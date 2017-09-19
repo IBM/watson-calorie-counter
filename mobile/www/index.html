@@ -25,6 +25,11 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Calorie Counter</title>
+        <script>
+        setTimeout(function() {
+            $("#cameraInst").remove();
+            }, 2000);
+        </script>
     </head>
     <body>
         <header>
@@ -33,17 +38,17 @@
             <input type="image" id="captureImage" src="img/camera.png" />
         </header>
         <article>
+            <br/>
+            <div id="cameraInst"><b>Click on the CAMERA ICON to capture image!</b></div>
             <!-- Capture and display image -->
             <div>
-                <img id="myPhoto" />
+                <img id="myPhoto"/>
             </div>
 
             <!-- Display Watson Visual Recognition response -->
-            <h2>Watson sees...</h2>
             <table id="labels"></table>
 
             <!--Display Nutritionix API response-->
-            <h2>Calories</h2>
             <div class="resultContainer"></div>
         </article>
 
