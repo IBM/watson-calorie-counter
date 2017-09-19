@@ -154,7 +154,9 @@ $ cd mobile
 $ cordova build android
 ```
 
-An `.apk` file should appear at `mobile/platforms/android/build/outputs/apk/android-debug.apk`, which contains the Android application. You can manually transfer the `.apk` to your device, or if your device is tethered (as described in the previous step), then you can run:
+An `.apk` file should appear at `mobile/platforms/android/build/outputs/apk/android-debug.apk`, which contains the Android application.
+
+You can either manually transfer the `.apk` to your device and run it yourself, or if your device is tethered (as described in the previous step), then you can run:
 
 ```
 $ cordova run android
