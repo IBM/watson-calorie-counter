@@ -141,7 +141,7 @@ $ cordova plugin add cordova-plugin-file-transfer
 
 In order to run the application on your Android device, you will need to be prepared to transfer the application's `.apk` file to your device (created in the next step). There are multiple ways for developers to achieve this.
 
-Android Studio will handle the transfer for you if you tether your Android device to your computer, and enable enable both `developer options` and `web debugging`.
+Android Studio will handle the transfer for you if you tether your Android device to your computer, and enable both `developer options` and `web debugging`.
 
 > Note: Please refer to documentation on your specific phone to set these options.
 
