@@ -39,9 +39,9 @@ application.post("/uploadpic", function (req, result) {
             console.log(err);
         } else {
             console.log(fields);
-            const abc = JSON.parse(JSON.stringify(files));
-            var params = {
-                image_file: fs.createReadStream(abc.myPhoto.path),
+            const filePath = JSON.parse(JSON.stringify(files));
+            const params = {
+                image_file: fs.createReadStream(filePath.myPhoto.path),
                 classifier_ids: ["food"]
             };
             visual_recognition.classify(params, function (err, res) {
