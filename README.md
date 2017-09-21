@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/IBM/watson-calorie-counter.svg?branch=master)](https://travis-ci.org/IBM/watson-calorie-counter)
+
 # Create a calorie counter mobile app using Watson Visual Recognition
 
 In this developer journey, we will create a calorie counter mobile app using Apache Cordova, Node.js and Watson Visual Recognition. This mobile app extracts nutritional information from captured images of food items.

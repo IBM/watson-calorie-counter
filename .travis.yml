@@ -1,0 +1,4 @@
+language: node_js
+node_js: 6
+before_install: npm install -g jslint
+script: jslint --edition="es6" server/app.js
