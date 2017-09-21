@@ -50,9 +50,11 @@ function onDevice(){
     //Watson Visual Recognition response display   
         
     var Response =  JSON.parse((r.response)); 
-                     
-            var html ="<h2>Watson sees..</h2>";
-                html+="<table border='1|1'>";
+            
+            var optitle ="<h2>Watson sees..</h2>";
+            document.getElementById("optitle").innerHTML = optitle;
+        
+            var html ="<table border='1|1'>";
                 html+="<tr>";
                 html+="<th>Class</th>";
                 html+="<th>Confidence score</th>";

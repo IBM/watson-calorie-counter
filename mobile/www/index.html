@@ -26,26 +26,26 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Calorie Counter</title>
         <script>
-        setTimeout(function() {
-            $("#cameraInst").remove();
-            }, 2000);
+        function delcamInst(){
+            document.getElementById("cameraInst").innerHTML="";
+        }     
         </script>
     </head>
     <body>
         <header>
             <img id="logo" src="img/cc_logo.jpg" alt="Calorie_Counterlogo">
             <h1>Calorie Counter</h1>
-            <input type="image" id="captureImage" src="img/camera.png" />
+            <input type="image" id="captureImage" src="img/camera.png" onclick="delcamInst()"/>
         </header>
         <article>
-            <br/>
-            <div id="cameraInst"><b>Click on the CAMERA ICON to capture image!</b></div>
             <!-- Capture and display image -->
             <div>
+                <div id="cameraInst"><b>Click on the CAMERA ICON to capture image!</b></div>
                 <img id="myPhoto"/>
             </div>
 
             <!-- Display Watson Visual Recognition response -->
+            <div id="optitle"></div>
             <table id="labels"></table>
 
             <!--Display Nutritionix API response-->
