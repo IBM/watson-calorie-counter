@@ -6,7 +6,7 @@ In this developer journey, we will create a calorie counter mobile app using Apa
 
 Currently this mobile app only runs on Android, but can be easily ported to iOS.
 
-![](doc/source/images/architecture.png)
+![Architecture diagram](doc/source/images/architecture.png)
 
 ## Flow
 
@@ -44,7 +44,7 @@ This journey contains several pieces. The app server communicates with the Watso
 
 2. In Toolchains, click on Delivery Pipeline to watch while the app is deployed.
 
-![](doc/source/images/toolchain-pipeline.png)
+![Toolchain pipeline](doc/source/images/toolchain-pipeline.png)
 
 3. To see the app and services created and configured for this journey, use the Bluemix dashboard. The app is named `watson-calorie-counter` with a unique suffix. The following services are created and easily identified by the `wcc-` prefix:
     * wcc-visual-recognition
@@ -58,7 +58,7 @@ To complete the installation, perform the following steps:
 3. [Update config values for the Mobile App](#3-update-config-values-for-the-mobile-app)
 4. [Install Android Mobile Development Framework](#4-install-android-mobile-development-framework)
 5. [Add Android platform and plug-ins](#5-add-android-platform-and-plug-ins)
-6. [Setup your Android phone](#6-setup-your-android-phone)
+6. [Setup your Android device](#6-setup-your-android-device)
 7. [Build and run the mobile app](#7-build-and-run-the-mobile-app)
 
 ## 1. Clone the repo
@@ -89,24 +89,29 @@ Edit `mobile/www/config.json` and update the setting with the values retrieved p
 
 For this journey, we will be using the Cordova Android framework.
 
-Installation instruction can be found on the [Cordova Android Platform Guide](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html).
+First you need to install the prerequisites, by following their respective documentation:
 
-This installation will require installing the [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) as well as [Android Studio](https://developer.android.com/studio/index.html).
+* [Node.js and npm](https://nodejs.org/en/download/) (`npm` version 4.5.0 or higher)
+* [Gradle](https://gradle.org/install/)
+* [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Android Studio](https://developer.android.com/studio/index.html)
+* [Cordova](https://cordova.apache.org/)
 
-From `Android Studio`, download and install the desired API Level for the SDK. To do this:
+The [Cordova Android Platform Guide](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html) provides additional installation instructions relevant to Android developers.
+
+Using `Android Studio`, download and install the desired API Level for the Android SDK. To do this:
 
 * Launch `Android Studio` and accept all defaults.
-* Click on the SDK Manager Icon in the toolbar.
+* Click on the `SDK Manager` icon in the toolbar.
 * Navigate to `Appearance & Behavior` -> `System Settings` -> `Android SDK`
-* Select desired API Levels (select all >= 23).
+* Select Android 6.0 (Marshmallow) (API Level 23).
 * Click apply to download and install.
 
-Once you have completed all of the required installs and setup, you should have the following environment variables set:
+Once you have completed all of the required installs and setup, you should have the following environment variables set appropriately for your platform:
 
 ```
 JAVA_HOME
 ANDROID_HOME
-ANDROID_SDK_HOME
 PATH
 ```
 
@@ -119,37 +124,52 @@ Add the Android platform as the target for your mobile app. Then install plug-in
 ```
 $ cd mobile
 $ cordova platform add android
+```
 
-# ensure that everything has been installed correctly
+Ensure that everything has been installed correctly:
+
+```
 $ cordova requirements
+```
 
+Install the plugins required by the application:
+
+```
 $ cordova plugin add cordova-plugin-camera
 $ cordova plugin add cordova-plugin-file-transfer
 ```
 
-### 6. Setup your Android phone
+### 6. Setup your Android device
 
-In order to run the mobile app on your phone, you will need to enable `developer options` and `web debugging`.
+In order to run the application on your Android device, you will need to be prepared to transfer the application's `.apk` file to your device (created in the next step). There are multiple ways for developers to achieve this.
+
+Android Studio will handle the transfer for you if you tether your Android device to your computer, and enable both `developer options` and `web debugging`.
 
 > Note: Please refer to documentation on your specific phone to set these options.
 
-Attach your Android phone to your computer.
-
-Install [Android File Transfer](https://www.android.com/filetransfer/) on your computer to enable file transfer between your computer and phone.
+For Mac users, [Android File Transfer](https://www.android.com/filetransfer/) will facilitate simple file transfers between your computer and Android device.
 
 ### 7. Build and run the mobile app
 
 ```
 $ cd mobile
 $ cordova build android
+```
+
+An `.apk` file should appear at `mobile/platforms/android/build/outputs/apk/android-debug.apk`, which contains the Android application.
+
+You can either manually transfer the `.apk` to your device and run it yourself, or if your device is tethered (as described in the previous step), then you can run:
+
+```
 $ cordova run android
 ```
 
-At this point, the app named `Calorie Counter` should come up on your phone. Press the `Capture Image` button to transfer to your phone camera. Take a photo of a food item and press `OK`. Analysis data will then be displayed.
+At this point, the app named `Calorie Counter` should come up on your phone. Use the camera icon to take a photo of a food item, and allow Watson to analyze the image and fetch the calorie results.
 
 # Sample Output
 
-<img src="doc/source/images/output1.jpg" width="250">  <img src="doc/source/images/output2.jpg" width="250">
+![Captured image](doc/source/images/output1.jpg)
+![Analysis](doc/source/images/output2.jpg)
 
 # Links
 
