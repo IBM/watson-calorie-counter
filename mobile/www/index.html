@@ -25,25 +25,30 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Calorie Counter</title>
+        <script>
+        function delcamInst(){
+            document.getElementById("cameraInst").innerHTML="";
+        }     
+        </script>
     </head>
     <body>
         <header>
             <img id="logo" src="img/cc_logo.jpg" alt="Calorie_Counterlogo">
             <h1>Calorie Counter</h1>
-            <input type="image" id="captureImage" src="img/camera.png" />
+            <input type="image" id="captureImage" src="img/camera.png" onclick="delcamInst()"/>
         </header>
         <article>
             <!-- Capture and display image -->
             <div>
-                <img id="myPhoto" />
+                <div id="cameraInst"><b>Click on the CAMERA ICON to capture image!</b></div>
+                <img id="myPhoto"/>
             </div>
 
             <!-- Display Watson Visual Recognition response -->
-            <h2>Watson sees...</h2>
+            <div id="optitle"></div>
             <table id="labels"></table>
 
             <!--Display Nutritionix API response-->
-            <h2>Calories</h2>
             <div class="resultContainer"></div>
         </article>
 
