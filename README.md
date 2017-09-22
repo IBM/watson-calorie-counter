@@ -56,7 +56,7 @@ To complete the installation, perform the following steps:
 1. [Clone the repo](#1-clone-the-repo)
 2. [Obtain a Nutritionix API ID and key](#2-obtain-a-nutritionix-api-id-and-key)
 3. [Update config values for the Mobile App](#3-update-config-values-for-the-mobile-app)
-4. [Install Android Mobile Development Framework](#4-install-android-mobile-development-framework)
+4. [Install dependencies to build the mobile application](#4-install-dependencies-to-build-the-mobile-application)
 5. [Add Android platform and plug-ins](#5-add-android-platform-and-plug-ins)
 6. [Setup your Android device](#6-setup-your-android-device)
 7. [Build and run the mobile app](#7-build-and-run-the-mobile-app)
@@ -80,7 +80,7 @@ Nutritionix data is used to gather nutritional information of an analyzed image.
 
 Edit `mobile/www/config.json` and update the setting with the values retrieved previously.
 
-```
+```javascript
 "BLUEMIX_SERVER_URL": "<add-bluemix-server-url>",
 "NUTRITIONIX_APP_ID": "<add-nutritionix-app-id>",
 "NUTRITIONIX_APP_KEY": "<add-nutritionix-app-key>"
@@ -125,15 +125,13 @@ You'll need to install the specific SDK appropriate for your mobile device. From
 
 Once you have completed all of the required installs and setup, you should have the following environment variables set appropriately for your platform:
 
-```
-JAVA_HOME
-ANDROID_HOME
-PATH
-```
+* `JAVA_HOME`
+* `ANDROID_HOME`
+* `PATH`
 
 > Note: For additonal help setting these environment variables, refer to the  [Troubleshooting](#troubleshooting) section below.
 
-### 5. Add Android platform and plug-ins
+## 5. Add Android platform and plug-ins
 
 If you're using Docker, then you'll need to run *all* of the `cordova` commands inside your Docker container. For example:
 
@@ -164,7 +162,7 @@ $ cordova plugin add cordova-plugin-camera
 $ cordova plugin add cordova-plugin-file-transfer
 ```
 
-### 6. Setup your Android device
+## 6. Setup your Android device
 
 In order to run the application on your Android device, you will need to be prepared to transfer the application's `.apk` file to your device (created in the next step). There are multiple ways for developers to achieve this.
 
@@ -174,7 +172,7 @@ Android Studio will handle the transfer for you if you tether your Android devic
 
 For Mac users, [Android File Transfer](https://www.android.com/filetransfer/) will facilitate simple file transfers between your computer and Android device.
 
-### 7. Build and run the mobile app
+## 7. Build and run the mobile app
 
 > Note: If you're using Docker, remember to prefix all your `cordova` commands with `docker …`.
 
@@ -242,9 +240,9 @@ Open `Android Studio` and navigate to `File` -> `Project Structure` -> `SDK
 Location`. This location value will serve as the base for your environement variables. For example, if the location is `/users/joe/Android/sdk`, then:
 
 ```
-export ANDROID_HOME=/users/joe/Android/sdk
-export ANDROID_SDK_HOME=/users/joe/Android/sdk/platforms/android-<api-level>
-export PATH=${PATH}:/users/joe/Android/sdk/platform-tools:/users/joe/Android/sdk/tools
+$ export ANDROID_HOME=/users/joe/Android/sdk
+$ export ANDROID_SDK_HOME=/users/joe/Android/sdk/platforms/android-<api-level>
+$ export PATH=${PATH}:/users/joe/Android/sdk/platform-tools:/users/joe/Android/sdk/tools
 ```
 
 # License
