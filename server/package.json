@@ -1,7 +1,6 @@
 {
   "name": "watson-calorie-counter",
-    "version": "0.0.1",
-       
+  "version": "0.0.1",
   "dependencies": {
     "body-parser": "^1.17.x",
     "cfenv": "^1.0.x",
@@ -9,14 +8,16 @@
     "express": "^4.15.x",
     "watson-developer-cloud": "^2.0.3",
     "formidable": "*",
-    "vcap_services": "^0.2.0"
+    "vcap_services": "^0.2.0",
+    "cf-deployment-tracker-client": "*"
   },
-    
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
-},  
-       
-  "author": "Riya Mary Roy",
-  "license": "Apache-2.0"
+      "start": "node app.js"
+  },
+ "license": "Apache-2.0",
+ "repository": {
+    "type": "git",
+    "url": "https://github.com/IBM/watson-calorie-counter.git"
+  }
 }
