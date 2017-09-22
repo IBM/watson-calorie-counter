@@ -63,10 +63,11 @@ To complete the installation, perform the following steps:
 
 ## 1. Clone the repo
 
-Clone the `watson-calorie-counter`repo locally. In a terminal, run:
+Clone the `watson-calorie-counter` repo locally. In a terminal, run:
 
 ```
-$ git clone https://github.com/IBM/watson-calorie-counter.git
+$ git clone https://github.com/IBM/watson-calorie-counter.git $HOME/watson-calorie-counter
+$ cd $HOME/watson-calorie-counter
 ```
 
 ## 2. Obtain a Nutritionix API ID and key
@@ -85,21 +86,36 @@ Edit `mobile/www/config.json` and update the setting with the values retrieved p
 "NUTRITIONIX_APP_KEY": "<add-nutritionix-app-key>"
 ```
 
-## 4. Install Android Mobile Development Framework
+## 4. Install dependencies to build the mobile application
 
-For this journey, we will be using the Cordova Android framework.
+Building the mobile application requires a few dependencies that you can either manually install yourself, **or** you can use [Docker](https://docs.docker.com/engine/installation/).
 
-First you need to install the prerequisites, by following their respective documentation:
+### Using Docker
 
-* [Node.js and npm](https://nodejs.org/en/download/) (`npm` version 4.5.0 or higher)
-* [Gradle](https://gradle.org/install/)
+```
+$ cd $HOME/watson-calorie-counter/mobile
+$ docker build -t calorie-counter .
+[truncated output]
+Successfully built <image-id>
+```
+
+You can then use `cordova` by running the image, mounting the repository's `mobile/` directory to `/mobile` in the container:
+
+```
+$ docker run --volume "$HOME/watson-calorie-counter/mobile:/mobile" calorie-counter cordova --help
+```
+
+### Using manually-installed dependencies
+
+For this journey, you'll need to install the prerequisites, by following their respective documentation:
+
 * [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* [Android Studio](https://developer.android.com/studio/index.html)
-* [Cordova](https://cordova.apache.org/)
+* [Node.js and npm](https://nodejs.org/en/download/) (`npm` version 4.5.0 or higher)
+* [Android Studio](https://developer.android.com/studio/), which includes Android tools and gives you access to Android SDKs
+* [Cordova](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html)
+* [Gradle](https://gradle.org/install/)
 
-The [Cordova Android Platform Guide](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html) provides additional installation instructions relevant to Android developers.
-
-Using `Android Studio`, download and install the desired API Level for the Android SDK. To do this:
+You'll need to install the specific SDK appropriate for your mobile device. From `Android Studio`, download and install the desired API Level for the SDK. To do this:
 
 * Launch `Android Studio` and accept all defaults.
 * Click on the `SDK Manager` icon in the toolbar.
@@ -119,10 +135,19 @@ PATH
 
 ### 5. Add Android platform and plug-ins
 
-Add the Android platform as the target for your mobile app. Then install plug-ins to provide access to device-level features.
+If you're using Docker, then you'll need to run *all* of the `cordova` commands inside your Docker container. For example:
 
 ```
-$ cd mobile
+$ docker run \
+  --volume="$HOME/watson-calorie-counter/mobile:/mobile" \
+  calorie-counter \
+  cordova --help
+```
+
+Start by adding the Android platform as the target for your mobile app.
+
+```
+$ cd $HOME/watson-calorie-counter/mobile
 $ cordova platform add android
 ```
 
@@ -132,7 +157,7 @@ Ensure that everything has been installed correctly:
 $ cordova requirements
 ```
 
-Install the plugins required by the application:
+Finally, install the plugins required by the application:
 
 ```
 $ cordova plugin add cordova-plugin-camera
@@ -151,20 +176,46 @@ For Mac users, [Android File Transfer](https://www.android.com/filetransfer/) wi
 
 ### 7. Build and run the mobile app
 
+> Note: If you're using Docker, remember to prefix all your `cordova` commands with `docker …`.
+
 ```
-$ cd mobile
+$ cd $HOME/watson-calorie-counter/mobile
 $ cordova build android
 ```
 
-An `.apk` file should appear at `mobile/platforms/android/build/outputs/apk/android-debug.apk`, which contains the Android application.
+An `.apk` file should appear at `$HOME/watson-calorie-counter/mobile/platforms/android/build/outputs/apk/android-debug.apk`, which contains the Android application.
 
-You can either manually transfer the `.apk` to your device and run it yourself, or if your device is tethered (as described in the previous step), then you can run:
+You can then either manually transfer the `.apk` to your device and run it yourself, or if your device is tethered (as described in the previous step), then you can run:
 
 ```
 $ cordova run android
 ```
 
-At this point, the app named `Calorie Counter` should come up on your phone. Use the camera icon to take a photo of a food item, and allow Watson to analyze the image and fetch the calorie results.
+However, a Docker container does not have access to your host's USB devices, unless you explicitly allow them to be passed through. You can expose your device to the Docker container, and allow Cordova to do the transfer for you. To accomplish that, you'll need to know which USB device to pass through. Discover your USB devices with `lsusb`.
+
+For example, in this case, I know that my Android device is `Bus 001, Device 002`:
+
+```
+$ lsusb
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 003: ID 046d:082d Logitech, Inc. HD Pro Webcam C920
+Bus 001 Device 002: ID 18d1:4ee6 Google Inc.
+Bus 001 Device 005: ID 046d:c085 Logitech, Inc.
+Bus 001 Device 004: ID 045e:02e6 Microsoft Corp.
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+```
+
+I can then pass my device through to the container using `--device=/dev/bus/usb/<bus-number>/<device-number>` and allow Cordova to access it. The complete Docker command would then be:
+
+```
+$ docker run \
+  --volume="$HOME/watson-calorie-counter/mobile:/mobile" \
+  --device=/dev/bus/usb/001/002 \
+  calorie-counter \
+  cordova run android
+```
+
+At this point, the app named `Calorie Counter` should be on your mobile device. Use the camera icon to take a photo of a food item, and allow Watson to analyze the image and fetch the calorie results.
 
 # Sample Output
 
