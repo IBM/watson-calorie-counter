@@ -1,8 +1,8 @@
 {
   "name": "com.example.hello",
-  "displayName": "CalorieCounter",
+  "displayName": "watson-calorie-counter",
   "version": "1.0.0",
-  "description": "A sample Calorie Counter app",
+  "description": "Calorie Counter App using Watson Visual Recognition",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

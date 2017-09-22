@@ -2,11 +2,8 @@
 <widget id="com.example.hello" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Calorie Counter</name>
     <description>
-        A sample calorie counter app.
+        Calorie counter using Watson Visual Recognition
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-       Calorie Counter team
-    </author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
