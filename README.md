@@ -218,8 +218,7 @@ At this point, the app named `Calorie Counter` should be on your mobile device. 
 
 # Sample Output
 
-![Captured image](doc/source/images/output1.jpg)
-![Analysis](doc/source/images/output2.jpg)
+<img src="doc/source/images/output1.jpg" width="250">  <img src="doc/source/images/output2.jpg" width="250">
 
 # Links
 
