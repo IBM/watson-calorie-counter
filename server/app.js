@@ -31,6 +31,7 @@ const visual_recognition = watson.visual_recognition({
     version: "v3",
     version_date: "2016-05-20"
 });
+application.use(express.static(__dirname + "/public"));
 application.post("/uploadpic", function (req, result) {
     const form = new formidable.IncomingForm();
     form.keepExtensions = true;
