@@ -1,5 +1,5 @@
 {
-  "name": "com.example.hello",
+  "name": "com.watson.caloriecounter",
   "displayName": "watson-calorie-counter",
   "version": "1.0.0",
   "description": "Calorie Counter App using Watson Visual Recognition",
