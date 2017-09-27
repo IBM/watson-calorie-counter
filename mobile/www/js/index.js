@@ -80,7 +80,8 @@ function onDevice(){
         options.mimeType="image/jpeg";
         options.chunkedMode = false;
         var ft = new FileTransfer();
-        ft.upload(imageData,encodeURI(apiURL+"/uploadpic"), win, fail, options);
+        apiURL = apiURL.replace(/\/$/, "");
+        ft.upload(imageData,encodeURI(apiURL + "/" + "uploadpic"), win, fail, options);
         }
    function onFail(message) {
       alert("Failed because: " + message);
