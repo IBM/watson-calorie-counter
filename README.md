@@ -31,7 +31,7 @@ Want to take your Watson app to the next level? Looking to leverage Watson Brand
 
 # Watch the Video
 
-TODO
+[![](http://img.youtube.com/vi/Jp_9hKoNYrM/0.jpg)](https://youtu.be/Jp_9hKoNYrM)
 
 # Steps
 
@@ -233,6 +233,10 @@ At this point, the app named `Calorie Counter` should be on your mobile device. 
 * `cordova run android` error: No target specified and no devices found, deploying to emulator
 
 > Ensure that your phone is plugged into your computer and you can access it from the Android File Transfer utility (see Step #6 above).
+
+* `cordova run android` error: Alert - An error has occurred: Code = 1 (or 0)
+
+> Ensure that your `BLUEMIX_SERVER_URL` value specified in your `config.json` file is a valid URL and does NOT contain an ending slash (`/`). For example, `https://watson-calorie-counter-20170925220102422.mybluemix.net`
 
 * How to determine proper values for environment variables:
 
