@@ -234,10 +234,6 @@ At this point, the app named `Calorie Counter` should be on your mobile device. 
 
 > Ensure that your phone is plugged into your computer and you can access it from the Android File Transfer utility (see Step #6 above).
 
-* `cordova run android` error: Alert - An error has occurred: Code = 1 (or 0)
-
-> Ensure that your `BLUEMIX_SERVER_URL` value specified in your `config.json` file is a valid URL and does NOT contain an ending slash (`/`). For example, `https://watson-calorie-counter-20170925220102422.mybluemix.net`
-
 * How to determine proper values for environment variables:
 
 Open `Android Studio` and navigate to `File` -> `Project Structure` -> `SDK
