@@ -245,6 +245,10 @@ $ export ANDROID_SDK_HOME=/users/joe/Android/sdk/platforms/android-<api-level>
 $ export PATH=${PATH}:/users/joe/Android/sdk/platform-tools:/users/joe/Android/sdk/tools
 ```
 
+* Error: Server error, status code: 502, error code: 10001, message: Service broker error: {"description"=>"Only one free key is allowed per organization. Contact your organization owner to obtain the key."}
+
+> Only one free key is allowed per organization. Binding the service to an application triggers a process that tries to allocate a new key,which will get rejected. If you already have an instance of Visual Recognition and an associated key, you can bind that instance to your application or update the API key in your server code to tell the app which key to use.
+
 # License
 
 [Apache 2.0](LICENSE)
