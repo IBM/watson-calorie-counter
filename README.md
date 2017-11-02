@@ -67,8 +67,8 @@ To complete the installation, perform the following steps:
 Clone the `watson-calorie-counter` repo locally. In a terminal, run:
 
 ```
-$ git clone https://github.com/IBM/watson-calorie-counter.git $HOME/watson-calorie-counter
-$ cd $HOME/watson-calorie-counter
+$ git clone https://github.com/IBM/watson-calorie-counter.git 
+$ cd watson-calorie-counter
 ```
 
 ## 2. Obtain a Nutritionix API ID and key
@@ -94,7 +94,7 @@ Building the mobile application requires a few dependencies that you can either 
 ### Using Docker
 
 ```
-$ cd $HOME/watson-calorie-counter/mobile
+$ cd watson-calorie-counter/mobile
 $ docker build -t calorie-counter .
 [truncated output]
 Successfully built <image-id>
@@ -103,7 +103,7 @@ Successfully built <image-id>
 You can then use `cordova` by running the image, mounting the repository's `mobile/` directory to `/mobile` in the container:
 
 ```
-$ docker run --volume "$HOME/watson-calorie-counter/mobile:/mobile" calorie-counter cordova --help
+$ docker run --volume "watson-calorie-counter/mobile:/mobile" calorie-counter cordova --help
 ```
 
 ### Using manually-installed dependencies
@@ -134,11 +134,11 @@ Once you have completed all of the required installs and setup, you should have 
 
 ## 5. Add Android platform and plug-ins
 
-If you're using Docker, then you'll need to run *all* of the `cordova` commands inside your Docker container. For example:
+If you're using Docker, then you'll need to run *all* of the `cordova` commands inside your Docker container. Adjust the path for `watson-calorie-counter/mobile` based on your present working directory.For example:
 
 ```
 $ docker run \
-  --volume="$HOME/watson-calorie-counter/mobile:/mobile" \
+  --volume="watson-calorie-counter/mobile:/mobile" \
   calorie-counter \
   cordova --help
 ```
@@ -146,7 +146,7 @@ $ docker run \
 Start by adding the Android platform as the target for your mobile app.
 
 ```
-$ cd $HOME/watson-calorie-counter/mobile
+$ cd watson-calorie-counter/mobile
 $ cordova platform add android
 ```
 
@@ -178,11 +178,11 @@ For Mac users, [Android File Transfer](https://www.android.com/filetransfer/) wi
 > Note: If you're using Docker, remember to prefix all your `cordova` commands with `docker …`.
 
 ```
-$ cd $HOME/watson-calorie-counter/mobile
+$ cd watson-calorie-counter/mobile
 $ cordova build android
 ```
 
-An `.apk` file should appear at `$HOME/watson-calorie-counter/mobile/platforms/android/build/outputs/apk/android-debug.apk`, which contains the Android application.
+An `.apk` file should appear at `watson-calorie-counter/mobile/platforms/android/build/outputs/apk/android-debug.apk`, which contains the Android application.
 
 You can then either manually transfer the `.apk` to your device and run it yourself, or if your device is tethered (as described in the previous step), then you can run:
 
@@ -208,7 +208,7 @@ I can then pass my device through to the container using `--device=/dev/bus/usb/
 
 ```
 $ docker run \
-  --volume="$HOME/watson-calorie-counter/mobile:/mobile" \
+  --volume="watson-calorie-counter/mobile:/mobile" \
   --device=/dev/bus/usb/001/002 \
   calorie-counter \
   cordova run android

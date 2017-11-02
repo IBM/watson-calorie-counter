@@ -36,11 +36,11 @@ RUN sdkmanager --update \
 RUN npm install -g cordova \
     && cordova telemetry off
 
+WORKDIR /mobile
 # This can be overridden by the user, but assumes that the repo's mobile/
 # directory is volume-mounted to /mobile in the container, using `docker run -v
 # mobile:/mobile`, for example.
 CMD \
-    cd /mobile ; \
     cordova platform add android || true ; \
     cordova requirements ; \
     cordova build android
