@@ -61,3 +61,4 @@ application.listen(port, function () {
     console.log("Server running on port: %d", port);
 });
 require("cf-deployment-tracker-client").track();
+require('metrics-tracker-client').track();
