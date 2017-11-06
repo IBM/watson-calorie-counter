@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/IBM/watson-calorie-counter.svg?branch=master)](https://travis-ci.org/IBM/watson-calorie-counter)
 ![Bluemix Deployments](https://deployment-tracker.mybluemix.net/stats/19a3d5f0934a2950b8c1b2b813b98d30/badge.svg)
+<!--![Bluemix Deployments](https://metrics-tracker.mybluemix.net/stats/538ed648bda50b9f22d64a8be817840f/badge.svg) -->
 
 # Create a calorie counter mobile app using Watson Visual Recognition
 
@@ -40,6 +41,7 @@ This journey contains several pieces. The app server communicates with the Watso
 ## Deploy the Server Application to Bluemix
 
 [![Deploy to Bluemix](https://deployment-tracker.mybluemix.net/stats/19a3d5f0934a2950b8c1b2b813b98d30/button.svg)](https://bluemix.net/deploy?repository=https://github.com/IBM/watson-calorie-counter.git)
+<!-- [![Deploy to Bluemix](https://metrics-tracker.mybluemix.net/stats/19a3d5f0934a2950b8c1b2b813b98d30/button.svg)](https://bluemix.net/deploy?repository=https://github.com/IBM/watson-calorie-counter.git) -->
 
 1. Press the above ``Deploy to Bluemix`` button and then click on ``Deploy``.
 
@@ -255,9 +257,7 @@ $ export PATH=${PATH}:/users/joe/Android/sdk/platform-tools:/users/joe/Android/s
 
 # Privacy Notice
 
-If using the Deploy to Bluemix button some metrics are tracked, the following
-information is sent to a [Deployment Tracker](https://github.com/IBM-Bluemix/cf-deployment-tracker-service) service
-on each deployment:
+If using the Deploy to Bluemix button some metrics are tracked, the following information is sent to a [Metrics Tracker](https://github.com/IBM/metrics-collector-service) service on each deployment:
 
 * Node.js package version
 * Node.js repository URL
@@ -267,17 +267,12 @@ on each deployment:
 * Space ID (`space_id`)
 * Application Version (`application_version`)
 * Application URIs (`application_uris`)
+* Cloud Foundry API (`cf_api`)
 * Labels of bound services
 * Number of instances for each bound service and associated plan information
 
-This data is collected from the `package.json` file in the sample application and the ``VCAP_APPLICATION``
-and ``VCAP_SERVICES`` environment variables in IBM Bluemix and other Cloud Foundry platforms. This
-data is used by IBM to track metrics around deployments of sample applications to IBM Bluemix to
-measure the usefulness of our examples, so that we can continuously improve the content we offer
-to you. Only deployments of sample applications that include code to ping the Deployment Tracker
-service will be tracked.
+This data is collected from the `package.json` and `repository.yaml` files in the sample application and the ``VCAP_APPLICATION`` and ``VCAP_SERVICES`` environment variables in IBM Bluemix and other Cloud Foundry platforms. This data is used by IBM to track metrics around deployments of sample applications to IBM Bluemix to measure the usefulness of our examples, so that we can continuously improve the content we offer to you. Only deployments of sample applications that include code to ping the Metrics Tracker service will be tracked.
 
 ## Disabling Deployment Tracking
 
-To disable tracking, simply remove ``cf_deployment_tracker.track()`` from the
-``app.js`` file in the top level directory.
+To disable tracking, simply remove `require("metrics-tracker-client").track();` from the [server/app.js](server/app.js) file.
