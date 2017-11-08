@@ -123,7 +123,7 @@ You'll need to install the specific SDK appropriate for your mobile device. From
 * Launch `Android Studio` and accept all defaults.
 * Click on the `SDK Manager` icon in the toolbar.
 * Navigate to `Appearance & Behavior` -> `System Settings` -> `Android SDK`
-* Select Android 6.0 (Marshmallow) (API Level 23).
+* Select Android API level of your choice(Recommended Android 6.0 (Marshmallow) (API Level 23) and above).
 * Click apply to download and install.
 
 Once you have completed all of the required installs and setup, you should have the following environment variables set appropriately for your platform:
