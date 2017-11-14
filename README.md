@@ -1,10 +1,9 @@
 [![Build Status](https://travis-ci.org/IBM/watson-calorie-counter.svg?branch=master)](https://travis-ci.org/IBM/watson-calorie-counter)
-![Bluemix Deployments](https://deployment-tracker.mybluemix.net/stats/19a3d5f0934a2950b8c1b2b813b98d30/badge.svg)
-<!--![Bluemix Deployments](https://metrics-tracker.mybluemix.net/stats/538ed648bda50b9f22d64a8be817840f/badge.svg) -->
+![IBM Cloud Deployments](https://metrics-tracker.mybluemix.net/stats/d3843fa56f1316f27c4d4c7e7f917ef8/badge.svg)
 
 # Create a calorie counter mobile app using Watson Visual Recognition
 
-In this developer journey, we will create a calorie counter mobile app using Apache Cordova, Node.js and Watson Visual Recognition. This mobile app extracts nutritional information from captured images of food items.
+In this Code Pattern, we will create a calorie counter mobile app using Apache Cordova, Node.js and Watson Visual Recognition. This mobile app extracts nutritional information from captured images of food items.
 
 Currently this mobile app only runs on Android, but can be easily ported to iOS.
 
@@ -15,10 +14,6 @@ Currently this mobile app only runs on Android, but can be easily ported to iOS.
 1. User interacts with the mobile app and captures an image.
 2. The image is passed to the server application which uses Watson Visual Recognition Service to analyze the images and Nutritionix API to provide nutritional information.
 3. Data is returned to the mobile app for display.
-
-## With Watson
-
-Want to take your Watson app to the next level? Looking to leverage Watson Brand assets? Join the [With Watson](https://www.ibm.com/watson/with-watson/) program which provides exclusive brand, marketing, and tech resources to amplify and accelerate your Watson embedded commercial solution.
 
 ## Included components
 
@@ -36,14 +31,13 @@ Want to take your Watson app to the next level? Looking to leverage Watson Brand
 
 # Steps
 
-This journey contains several pieces. The app server communicates with the Watson Visual Recognition service. The mobile application is built locally and run on the Android phone.
+This Code Pattern contains several pieces. The app server communicates with the Watson Visual Recognition service. The mobile application is built locally and run on the Android phone.
 
-## Deploy the Server Application to Bluemix
+## Deploy the Server Application to IBM Cloud
 
-[![Deploy to Bluemix](https://deployment-tracker.mybluemix.net/stats/19a3d5f0934a2950b8c1b2b813b98d30/button.svg)](https://bluemix.net/deploy?repository=https://github.com/IBM/watson-calorie-counter.git)
-<!-- [![Deploy to Bluemix](https://metrics-tracker.mybluemix.net/stats/19a3d5f0934a2950b8c1b2b813b98d30/button.svg)](https://bluemix.net/deploy?repository=https://github.com/IBM/watson-calorie-counter.git) -->
+[![Deploy to IBM Cloud](https://metrics-tracker.mybluemix.net/stats/d3843fa56f1316f27c4d4c7e7f917ef8/button.svg)](https://bluemix.net/deploy?repository=https://github.com/IBM/watson-calorie-counter)
 
-1. Press the above ``Deploy to Bluemix`` button and then click on ``Deploy``.
+1. Press the above ``Deploy to IBM Cloud`` button and then click on ``Deploy``.
 
 2. In Toolchains, click on Delivery Pipeline to watch while the app is deployed.
 
@@ -222,10 +216,6 @@ At this point, the app named `Calorie Counter` should be on your mobile device. 
 
 <img src="doc/source/images/output1.jpg" width="250">  <img src="doc/source/images/output2.jpg" width="250">
 
-# Links
-
-* [Watson Node.js SDK](https://github.com/watson-developer-cloud/node-sdk)
-
 # Troubleshooting
 
 * `cordova run android` error: Failure [INSTALL_FAILED_UPDATE_INCOMPATIBLE]
@@ -251,10 +241,6 @@ $ export PATH=${PATH}:/users/joe/Android/sdk/platform-tools:/users/joe/Android/s
 
 > Only one free key is allowed per organization. Binding the service to an application triggers a process that tries to allocate a new key,which will get rejected. If you already have an instance of Visual Recognition and an associated key, you can bind that instance to your application or update the API key in your server code to tell the app which key to use.
 
-# License
-
-[Apache 2.0](LICENSE)
-
 # Privacy Notice
 
 If using the Deploy to Bluemix button some metrics are tracked, the following information is sent to a [Metrics Tracker](https://github.com/IBM/metrics-collector-service) service on each deployment:
@@ -267,12 +253,27 @@ If using the Deploy to Bluemix button some metrics are tracked, the following in
 * Space ID (`space_id`)
 * Application Version (`application_version`)
 * Application URIs (`application_uris`)
-* Cloud Foundry API (`cf_api`)
 * Labels of bound services
 * Number of instances for each bound service and associated plan information
 
-This data is collected from the `package.json` and `repository.yaml` files in the sample application and the ``VCAP_APPLICATION`` and ``VCAP_SERVICES`` environment variables in IBM Bluemix and other Cloud Foundry platforms. This data is used by IBM to track metrics around deployments of sample applications to IBM Bluemix to measure the usefulness of our examples, so that we can continuously improve the content we offer to you. Only deployments of sample applications that include code to ping the Metrics Tracker service will be tracked.
+This data is collected from the `package.json` file in the sample application and the `VCAP_APPLICATION` and `VCAP_SERVICES` environment variables in IBM Cloud and other Cloud Foundry platforms. This data is used by IBM to track metrics around deployments of sample applications to IBM IBM Cloud to measure the usefulness of our examples, so that we can continuously improve the content we offer to you. Only deployments of sample applications that include code to ping the Deployment Tracker service will be tracked.
 
 ## Disabling Deployment Tracking
 
 To disable tracking, simply remove `require("metrics-tracker-client").track();` from the [server/app.js](server/app.js) file.
+
+# Links
+
+* [Demo on Youtube](https://youtu.be/Jp_9hKoNYrM): Watch the video.
+* [Watson Node.js SDK](https://github.com/watson-developer-cloud/node-sdk): : Visit the Node.js library to access IBM Watson services.
+* [Sample code](https://www.ibm.com/developerworks/library/cc-sample-code-image-classification-watson-node/index.html): Identify objects in an image with the Watson Visual Recognition service.
+
+# Learn more
+
+* **Artificial Intelligence Code Patterns**: Enjoyed this Code Pattern? Check out our other [AI Code Patterns](https://developer.ibm.com/code/technologies/artificial-intelligence/).
+* **AI and Data Code Pattern Playlist**: Bookmark our [playlist](https://www.youtube.com/playlist?list=PLzUbsvIyrNfknNewObx5N7uGZ5FKH0Fde) with all of our Code Pattern videos
+* **With Watson**: Want to take your Watson app to the next level? Looking to utilize Watson Brand assets? [Join the With Watson program](https://www.ibm.com/watson/with-watson/) to leverage exclusive brand, marketing, and tech resources to amplify and accelerate your Watson embedded commercial solution.
+
+# License
+
+[Apache 2.0](LICENSE)
