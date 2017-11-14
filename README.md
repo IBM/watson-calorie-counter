@@ -43,7 +43,7 @@ This Code Pattern contains several pieces. The app server communicates with the 
 
 ![Toolchain pipeline](doc/source/images/toolchain-pipeline.png)
 
-3. To see the app and services created and configured for this journey, use the Bluemix dashboard. The app is named `watson-calorie-counter` with a unique suffix. The following services are created and easily identified by the `wcc-` prefix:
+3. To see the app and services created and configured for this Code Pattern, use the IBM Cloud dashboard. The app is named `watson-calorie-counter` with a unique suffix. The following services are created and easily identified by the `wcc-` prefix:
     * wcc-visual-recognition
 
 > Note: Make note of the `watson-calorie-counter` URL route - it will be required for later use in the mobile app.
@@ -104,7 +104,7 @@ $ docker run --volume "watson-calorie-counter/mobile:/mobile" calorie-counter co
 
 ### Using manually-installed dependencies
 
-For this journey, you'll need to install the prerequisites, by following their respective documentation:
+For this Code Pattern, you'll need to install the prerequisites, by following their respective documentation:
 
 * [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Node.js and npm](https://nodejs.org/en/download/) (`npm` version 4.5.0 or higher)
@@ -243,7 +243,7 @@ $ export PATH=${PATH}:/users/joe/Android/sdk/platform-tools:/users/joe/Android/s
 
 # Privacy Notice
 
-If using the Deploy to Bluemix button some metrics are tracked, the following information is sent to a [Metrics Tracker](https://github.com/IBM/metrics-collector-service) service on each deployment:
+If using the Deploy to IBM Cloud button some metrics are tracked, the following information is sent to a [Metrics Tracker](https://github.com/IBM/metrics-collector-service) service on each deployment:
 
 * Node.js package version
 * Node.js repository URL
