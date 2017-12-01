@@ -36,21 +36,21 @@ In der Standardeinstellung Navigationen nur auf `file://` URLs, sind zulässig. 
 
     <!-- Allow links to example.com -->
     <allow-navigation href="http://example.com/*" />
-    
+
     <!-- Wildcards are allowed for the protocol, as a prefix
          to the host, or as a suffix to the path -->
     <allow-navigation href="*://*.example.com/*" />
-    
+
     <!-- A wildcard can be used to whitelist the entire network,
          over HTTP and HTTPS.
          *NOT RECOMMENDED* -->
     <allow-navigation href="*" />
-    
+
     <!-- The above is equivalent to these three declarations -->
     <allow-navigation href="http://*/*" />
     <allow-navigation href="https://*/*" />
     <allow-navigation href="data:*" />
-    
+
 
 ## Vorsatz-Whitelist
 
@@ -65,27 +65,27 @@ Fügen Sie in `"config.xml"` `<allow-intent>` Tags hinzu, wie folgt:
     <!-- Allow links to web pages to open in a browser -->
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    
+
     <!-- Allow links to example.com to open in a browser -->
     <allow-intent href="http://example.com/*" />
-    
+
     <!-- Wildcards are allowed for the protocol, as a prefix
          to the host, or as a suffix to the path -->
     <allow-intent href="*://*.example.com/*" />
-    
+
     <!-- Allow SMS links to open messaging app -->
     <allow-intent href="sms:*" />
-    
+
     <!-- Allow tel: links to open the dialer -->
     <allow-intent href="tel:*" />
-    
+
     <!-- Allow geo: links to open maps -->
     <allow-intent href="geo:*" />
-    
+
     <!-- Allow all unrecognized URLs to open installed apps
          *NOT RECOMMENDED* -->
     <allow-intent href="*" />
-    
+
 
 ## Netzwerk-Anforderung-Whitelist
 
@@ -98,19 +98,19 @@ Fügen Sie in `"config.xml"` `<access>` Tags hinzu, wie folgt:
     <!-- Allow images, xhrs, etc. to google.com -->
     <access origin="http://google.com" />
     <access origin="https://google.com" />
-    
+
     <!-- Access to the subdomain maps.google.com -->
     <access origin="http://maps.google.com" />
-    
+
     <!-- Access to all the subdomains on google.com -->
     <access origin="http://*.google.com" />
-    
+
     <!-- Enable requests to content: URLs -->
     <access origin="content:///*" />
-    
+
     <!-- Don't block any requests -->
     <access origin="*" />
-    
+
 
 Ohne `<access>` -Tags dürfen nur Anforderungen an `file://` URLs. Enthält jedoch die Standardanwendung Cordova `<access origin="*">` standardmäßig.
 
@@ -134,15 +134,15 @@ Hier sind einige Beispiel-CSP-Deklarationen für Ihre `HTML` -Seiten:
             * Enable eval(): add 'unsafe-eval' to default-src
     -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *">
-    
+
     <!-- Allow requests to foo.com -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' foo.com">
-    
+
     <!-- Enable all requests, inline styles, and eval() -->
     <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
-    
+
     <!-- Allow XHRs via https only -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:">
-    
+
     <!-- Allow iframe to https://cordova.apache.org/ -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://cordova.apache.org">
