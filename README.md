@@ -63,7 +63,7 @@ To complete the installation, perform the following steps:
 Clone the `watson-calorie-counter` repo locally. In a terminal, run:
 
 ```
-$ git clone https://github.com/IBM/watson-calorie-counter.git 
+$ git clone https://github.com/IBM/watson-calorie-counter.git
 $ cd watson-calorie-counter
 ```
 

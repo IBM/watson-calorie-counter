@@ -36,21 +36,21 @@ WebView 자체가 탐색할 수 있는 Url을 제어 합니다. 최상위 탐색
 
     <!-- Allow links to example.com -->
     <allow-navigation href="http://example.com/*" />
-    
+
     <!-- Wildcards are allowed for the protocol, as a prefix
          to the host, or as a suffix to the path -->
     <allow-navigation href="*://*.example.com/*" />
-    
+
     <!-- A wildcard can be used to whitelist the entire network,
          over HTTP and HTTPS.
          *NOT RECOMMENDED* -->
     <allow-navigation href="*" />
-    
+
     <!-- The above is equivalent to these three declarations -->
     <allow-navigation href="http://*/*" />
     <allow-navigation href="https://*/*" />
     <allow-navigation href="data:*" />
-    
+
 
 ## 의도 허용
 
@@ -65,27 +65,27 @@ App 시스템 열을 게 허용 되는 Url을 제어 합니다. 기본적으로 
     <!-- Allow links to web pages to open in a browser -->
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    
+
     <!-- Allow links to example.com to open in a browser -->
     <allow-intent href="http://example.com/*" />
-    
+
     <!-- Wildcards are allowed for the protocol, as a prefix
          to the host, or as a suffix to the path -->
     <allow-intent href="*://*.example.com/*" />
-    
+
     <!-- Allow SMS links to open messaging app -->
     <allow-intent href="sms:*" />
-    
+
     <!-- Allow tel: links to open the dialer -->
     <allow-intent href="tel:*" />
-    
+
     <!-- Allow geo: links to open maps -->
     <allow-intent href="geo:*" />
-    
+
     <!-- Allow all unrecognized URLs to open installed apps
          *NOT RECOMMENDED* -->
     <allow-intent href="*" />
-    
+
 
 ## 네트워크 요청 허용
 
@@ -98,19 +98,19 @@ App 시스템 열을 게 허용 되는 Url을 제어 합니다. 기본적으로 
     <!-- Allow images, xhrs, etc. to google.com -->
     <access origin="http://google.com" />
     <access origin="https://google.com" />
-    
+
     <!-- Access to the subdomain maps.google.com -->
     <access origin="http://maps.google.com" />
-    
+
     <!-- Access to all the subdomains on google.com -->
     <access origin="http://*.google.com" />
-    
+
     <!-- Enable requests to content: URLs -->
     <access origin="content:///*" />
-    
+
     <!-- Don't block any requests -->
     <access origin="*" />
-    
+
 
 어떤 `< access >` 태그 없이 요청 `file://` Url 사용할 수 있습니다. 그러나 기본 코르도바 응용 프로그램을 포함 하는, `< access origin="*" >` 기본적으로.
 
@@ -134,15 +134,15 @@ App 시스템 열을 게 허용 되는 Url을 제어 합니다. 기본적으로 
             * Enable eval(): add 'unsafe-eval' to default-src
     -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *">
-    
+
     <!-- Allow requests to foo.com -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' foo.com">
-    
+
     <!-- Enable all requests, inline styles, and eval() -->
     <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
-    
+
     <!-- Allow XHRs via https only -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:">
-    
+
     <!-- Allow iframe to https://cordova.apache.org/ -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://cordova.apache.org">
