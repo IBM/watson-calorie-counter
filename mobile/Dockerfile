@@ -25,11 +25,12 @@ RUN wget https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip -O
     && rm /tmp/android-sdk.zip
 ENV PATH ${PATH}:/opt/android/tools/bin
 
-# Install Android SDK.
-RUN sdkmanager --update \
-    && yes | sdkmanager \
-    "build-tools;26.0.1" \
-    "platforms;android-25"
+# This should always be the latest version that the project can be built with.
+RUN yes | sdkmanager "build-tools;27.0.3"
+
+# Change this version to match your desired Android API version, as supported
+# by your target hardware device.
+RUN yes | sdkmanager "platforms;android-26"
 
 # Install Cordova, and opt out of telemetry reporting. If we don't opt-out now,
 # then the user will face an interactive prompt when building the image later.
