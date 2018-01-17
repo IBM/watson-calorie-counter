@@ -53,7 +53,12 @@ To complete the installation, perform the following steps:
 1. [Clone the repo](#1-clone-the-repo)
 2. [Obtain a Nutritionix API ID and key](#2-obtain-a-nutritionix-api-id-and-key)
 3. [Update config values for the Mobile App](#3-update-config-values-for-the-mobile-app)
-4. [Install dependencies to build the mobile application](#4-install-dependencies-to-build-the-mobile-application)
+4. Perform either 4a or 4b.
+
+    4a. [Install dependencies to build the mobile application](#4a-install-dependencies-to-build-the-mobile-application)
+
+    4b. [Run mobile application build in Docker container](#4b-run-mobile-application-build-in-docker-container)
+
 5. [Add Android platform and plug-ins](#5-add-android-platform-and-plug-ins)
 6. [Setup your Android device](#6-setup-your-android-device)
 7. [Build and run the mobile app](#7-build-and-run-the-mobile-app)
@@ -83,24 +88,9 @@ Edit `mobile/www/config.json` and update the setting with the values retrieved p
 "NUTRITIONIX_APP_KEY": "<add-nutritionix-app-key>"
 ```
 
-## 4. Install dependencies to build the mobile application
+## 4a. Install dependencies to build the mobile application
 
-Building the mobile application requires a few dependencies that you can either manually install yourself, **or** you can use [Docker](https://docs.docker.com/engine/installation/).
-
-### Using Docker
-
-```
-$ cd watson-calorie-counter/mobile
-$ docker build -t calorie-counter .
-[truncated output]
-Successfully built <image-id>
-```
-
-You can then use `cordova` by running the image, mounting the repository's `mobile/` directory to `/mobile` in the container:
-
-```
-$ docker run --volume "watson-calorie-counter/mobile:/mobile" calorie-counter cordova --help
-```
+Building the mobile application requires a few dependencies that you can either manually install yourself, **or** you can use [Docker](https://docs.docker.com/engine/installation/) by skipping to [Run mobile application build in Docker container](#4b-run-mobile-application-build-in-docker-container)
 
 ### Using manually-installed dependencies
 
@@ -112,13 +102,18 @@ For this Code Pattern, you'll need to install the prerequisites, by following th
 * [Cordova](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html)
 * [Gradle](https://gradle.org/install/)
 
-You'll need to install the specific SDK appropriate for your mobile device. From `Android Studio`, download and install the desired API Level for the SDK. To do this:
+You'll need to install the specific SDK appropriate for your mobile device. From `Android Studio`, download and install the desired API Level for the SDK. We are using Android API Level 23 as this is widely supported on most phones as of January, 2018. To do this:
 
 * Launch `Android Studio` and accept all defaults.
 * Click on the `SDK Manager` icon in the toolbar.
 * Navigate to `Appearance & Behavior` -> `System Settings` -> `Android SDK`
 * Select Android API level of your choice (Recommended Android 6.0 (Marshmallow) (API Level 23) and above).
 * Click apply to download and install.
+
+> Note: the mobile/config.xml is configured to build for Android API Level 23. Adjust this if you wish to build for a different API:
+```
+<preference name="android-targetSdkVersion" value="23" />
+```
 
 Once you have completed all of the required installs and setup, you should have the following environment variables set appropriately for your platform:
 
@@ -128,16 +123,35 @@ Once you have completed all of the required installs and setup, you should have 
 
 > Note: For additonal help setting these environment variables, refer to the  [Troubleshooting](#troubleshooting) section below.
 
+## 4b. Run mobile application build in Docker container
+
+If you are running [Docker](https://docs.docker.com/engine/installation/), build the mobile app in a Docker container.
+
+Either download the image:
+```
+docker pull scottdangelo/cordova_build
+```
+
+Or build locally:
+```
+$ cd watson-calorie-counter/mobile
+$ docker build -t cordova_build .
+[truncated output]
+Successfully built <image-id>
+```
+
+Now create the following alias for `cordova` and the commands for cordova will run inside the container. Use `cordova_build` in place of `scottdangelo/cordova_build` if you have built the container locally.
+
+```
+alias cordova='docker run -it --rm --privileged  -v $PWD:/mobile scottdangelo:cordova_build cordova'
+```
+
+> Note: the mobile/config.xml is configured to build for Android API Level 23. Adjust this if you wish to build for a different API:
+```
+<preference name="android-targetSdkVersion" value="23" />
+```
+
 ## 5. Add Android platform and plug-ins
-
-If you're using Docker, then you'll need to run *all* of the `cordova` commands inside your Docker container. Adjust the path for `watson-calorie-counter/mobile` based on your present working directory.For example:
-
-```
-$ docker run \
-  --volume="watson-calorie-counter/mobile:/mobile" \
-  calorie-counter \
-  cordova --help
-```
 
 Start by adding the Android platform as the target for your mobile app.
 
@@ -186,7 +200,7 @@ You can then either manually transfer the `.apk` to your device and run it yours
 $ cordova run android
 ```
 
-However, a Docker container does not have access to your host's USB devices, unless you explicitly allow them to be passed through. You can expose your device to the Docker container, and allow Cordova to do the transfer for you. To accomplish that, you'll need to know which USB device to pass through. Discover your USB devices with `lsusb`.
+However, a Docker container does not have access to your host's USB devices, unless you explicitly allow them to be passed through. You can expose your device to the Docker container, and allow Cordova to do the transfer for you. To accomplish that, you'll need to know which USB device to pass through. Discover your USB devices on a Linux machine with `lsusb`.
 
 For example, in this case, I know that my Android device is `Bus 001, Device 002`:
 
@@ -200,14 +214,14 @@ Bus 001 Device 004: ID 045e:02e6 Microsoft Corp.
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 ```
 
-I can then pass my device through to the container using `--device=/dev/bus/usb/<bus-number>/<device-number>` and allow Cordova to access it. The complete Docker command would then be:
+I can then pass my device through to the container using `--device=/dev/bus/usb/<bus-number>/<device-number>` and allow Cordova to access it. The new alias for the cordova command would then be:
 
 ```
-$ docker run \
-  --volume="watson-calorie-counter/mobile:/mobile" \
-  --device=/dev/bus/usb/001/002 \
-  calorie-counter \
-  cordova run android
+alias cordova='docker run -it --rm --privileged  --device=/dev/bus/usb/001/002 -v $PWD:/mobile scottdangelo:cordova_build cordova'
+```
+Then we can run:
+```
+cordova run android
 ```
 
 At this point, the app named `Calorie Counter` should be on your mobile device. Use the camera icon to take a photo of a food item, and allow Watson to analyze the image and fetch the calorie results.
@@ -240,6 +254,17 @@ $ export PATH=${PATH}:/users/joe/Android/sdk/platform-tools:/users/joe/Android/s
 * Error: Server error, status code: 502, error code: 10001, message: Service broker error: {"description"=>"Only one free key is allowed per organization. Contact your organization owner to obtain the key."}
 
 > Only one free key is allowed per organization. Binding the service to an application triggers a process that tries to allocate a new key,which will get rejected. If you already have an instance of Visual Recognition and an associated key, you can bind that instance to your application or update the API key in your server code to tell the app which key to use.
+
+* When using Docker, first `cordova` command fails with:
+```
+-bash: cordova: command not found
+```
+
+> Test that you have the proper alias with:
+```
+alias |grep cordova
+```
+If you do not see the `alias cordova=...` output from [4b](#4b-run-mobile-application-build-in-docker-container), re-execute the `alias` command above.
 
 # Privacy Notice
 

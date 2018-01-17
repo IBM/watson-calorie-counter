@@ -41,7 +41,3 @@ WORKDIR /mobile
 # This can be overridden by the user, but assumes that the repo's mobile/
 # directory is volume-mounted to /mobile in the container, using `docker run -v
 # mobile:/mobile`, for example.
-CMD \
-    cordova platform add android || true ; \
-    cordova requirements ; \
-    cordova build android
