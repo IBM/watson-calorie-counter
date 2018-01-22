@@ -39,7 +39,7 @@ This Code Pattern contains several pieces. The app server communicates with the 
 
 1. Press the above ``Deploy to IBM Cloud`` button and then click on ``Deploy``.
 
-2. In Toolchains, click on Delivery Pipeline to watch while the app is deployed.
+2. In `Toolchains`, click on `Delivery Pipeline` to watch while the app is deployed.
 
 ![Toolchain pipeline](doc/source/images/toolchain-pipeline.png)
 
@@ -110,7 +110,7 @@ You'll need to install the specific SDK appropriate for your mobile device. From
 * Select Android API level of your choice (Recommended Android 6.0 (Marshmallow) (API Level 23) and above).
 * Click apply to download and install.
 
-> Note: the mobile/config.xml is configured to build for Android API Level 23. Adjust this if you wish to build for a different API:
+> Note: the `mobile/config.xml` is configured to build for Android API Level 23. Adjust this if you wish to build for a different API:
 ```
 <preference name="android-targetSdkVersion" value="23" />
 ```
@@ -146,7 +146,7 @@ Now create the following alias for `cordova` and the commands for cordova will r
 alias cordova='docker run -it --rm --privileged  -v $PWD:/mobile scottdangelo:cordova_build cordova'
 ```
 
-> Note: the mobile/config.xml is configured to build for Android API Level 23. Adjust this if you wish to build for a different API:
+> Note: the `mobile/config.xml` is configured to build for Android API Level 23. Adjust this if you wish to build for a different API:
 ```
 <preference name="android-targetSdkVersion" value="23" />
 ```
@@ -243,7 +243,7 @@ At this point, the app named `Calorie Counter` should be on your mobile device. 
 * How to determine proper values for environment variables:
 
 Open `Android Studio` and navigate to `File` -> `Project Structure` -> `SDK
-Location`. This location value will serve as the base for your environement variables. For example, if the location is `/users/joe/Android/sdk`, then:
+Location`. This location value will serve as the base for your environment variables. For example, if the location is `/users/joe/Android/sdk`, then:
 
 ```
 $ export ANDROID_HOME=/users/joe/Android/sdk
@@ -253,7 +253,7 @@ $ export PATH=${PATH}:/users/joe/Android/sdk/platform-tools:/users/joe/Android/s
 
 * Error: Server error, status code: 502, error code: 10001, message: Service broker error: {"description"=>"Only one free key is allowed per organization. Contact your organization owner to obtain the key."}
 
-> Only one free key is allowed per organization. Binding the service to an application triggers a process that tries to allocate a new key,which will get rejected. If you already have an instance of Visual Recognition and an associated key, you can bind that instance to your application or update the API key in your server code to tell the app which key to use.
+> Only one free key is allowed per organization. Binding the service to an application triggers a process that tries to allocate a new key, which will get rejected. If you already have an instance of Visual Recognition and an associated key, you can bind that instance to your application or update the API key in your server code to tell the app which key to use.
 
 * When using Docker, first `cordova` command fails with:
 ```
@@ -268,7 +268,7 @@ If you do not see the `alias cordova=...` output from [4b](#4b-run-mobile-applic
 
 # Privacy Notice
 
-If using the Deploy to IBM Cloud button some metrics are tracked, the following information is sent to a [Metrics Tracker](https://github.com/IBM/metrics-collector-service) service on each deployment:
+If using the `Deploy to IBM Cloud` button some metrics are tracked, the following information is sent to a [Metrics Tracker](https://github.com/IBM/metrics-collector-service) service on each deployment:
 
 * Node.js package version
 * Node.js repository URL
