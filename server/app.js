@@ -60,5 +60,3 @@ const port = process.env.PORT || process.env.VCAP_APP_PORT || 3000;
 application.listen(port, function () {
     console.log("Server running on port: %d", port);
 });
-
-require("metrics-tracker-client").track();
