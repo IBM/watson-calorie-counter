@@ -14,8 +14,8 @@
 *  limitations under the License.
 */
 
-/*jslint node: true*/
-/*jslint es6 */
+/*jshint node: true*/
+/*jshint esversion: 6 */
 "use strict";
 
 const fs = require("fs");
