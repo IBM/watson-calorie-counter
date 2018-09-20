@@ -18,19 +18,20 @@
 /*jshint esversion: 6 */
 "use strict";
 
+require("dotenv").config({
+    silent: true
+});
+
 const fs = require("fs");
-const watson = require("watson-developer-cloud");
+const VisualRecognitionV3 = require("watson-developer-cloud/visual-recognition/v3");
 const express = require("express");
 const application = express();
 const formidable = require("formidable");
-const vcapServices = require("vcap_services");
-const credentials = vcapServices.getCredentials("watson_vision_combined");
 
-const visual_recognition = watson.visual_recognition({
-    api_key: credentials.api_key,
-    version: "v3",
-    version_date: "2016-05-20"
+const visual_recognition = new VisualRecognitionV3({
+    version: "2018-03-19"
 });
+
 application.use(express.static(__dirname + "/public"));
 application.post("/uploadpic", function (req, result) {
     const form = new formidable.IncomingForm();

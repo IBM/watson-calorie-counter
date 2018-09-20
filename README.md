@@ -184,14 +184,12 @@ For Mac users, [Android File Transfer](https://www.android.com/filetransfer/) wi
 
 ## 7. Build and run the mobile app
 
-> Note: If you're using Docker, remember to prefix all your `cordova` commands with `docker …`.
-
 ```
 $ cd watson-calorie-counter/mobile
 $ cordova build android
 ```
 
-An `.apk` file should appear at `watson-calorie-counter/mobile/platforms/android/build/outputs/apk/android-debug.apk`, which contains the Android application.
+An `.apk` file should appear at `watson-calorie-counter/mobile/platforms/android/app/build/outputs/apk/debug/`, which contains the Android application.
 
 You can then either manually transfer the `.apk` to your device and run it yourself, or if your device is tethered (as described in the previous step), then you can run:
 
