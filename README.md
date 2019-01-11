@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/IBM/watson-calorie-counter.svg?branch=master)](https://travis-ci.org/IBM/watson-calorie-counter)
+[![Build Status](https://api.travis-ci.org/IBM/watson-calorie-counter.svg?branch=master)](https://travis-ci.org/IBM/watson-calorie-counter)
 
 # Create a calorie counter mobile app using Watson Visual Recognition
 
@@ -26,7 +26,7 @@ Currently this mobile app only runs on Android, but can be easily ported to iOS.
 
 # Watch the Video
 
-[![](http://img.youtube.com/vi/Jp_9hKoNYrM/0.jpg)](https://youtu.be/Jp_9hKoNYrM)
+[![](https://img.youtube.com/vi/Jp_9hKoNYrM/0.jpg)](https://youtu.be/Jp_9hKoNYrM)
 
 # Steps
 
@@ -36,7 +36,7 @@ This Code Pattern contains several pieces. The app server communicates with the 
 
 ## Deploy the Server Application to IBM Cloud
 
-[![Deploy to IBM Cloud](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/IBM/watson-calorie-counter)
+[![Deploy to IBM Cloud](https://cloud.ibm.com/devops/setup/deploy/button.png)](https://cloud.ibm.com/devops/setup/deploy?repository=https://github.com/IBM/watson-calorie-counter)
 
 1. Press the above ``Deploy to IBM Cloud`` button and then click on ``Deploy``.
 
@@ -97,7 +97,7 @@ Building the mobile application requires a few dependencies that you can either 
 
 For this Code Pattern, you'll need to install the prerequisites, by following their respective documentation:
 
-* [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Node.js and npm](https://nodejs.org/en/download/) (`npm` version 4.5.0 or higher)
 * [Android Studio](https://developer.android.com/studio/), which includes Android tools and gives you access to Android SDKs
 * [Cordova](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html)
@@ -273,12 +273,12 @@ If you do not see the `alias cordova=...` output from [4b](#4b-run-mobile-applic
 
 # Learn more
 
-* **Artificial Intelligence Code Patterns**: Enjoyed this Code Pattern? Check out our other [AI Code Patterns](https://developer.ibm.com/code/technologies/artificial-intelligence/).
+* **Artificial Intelligence Code Patterns**: Enjoyed this Code Pattern? Check out our other [AI Code Patterns](https://developer.ibm.com/technologies/artificial-intelligence/).
 * **AI and Data Code Pattern Playlist**: Bookmark our [playlist](https://www.youtube.com/playlist?list=PLzUbsvIyrNfknNewObx5N7uGZ5FKH0Fde) with all of our Code Pattern videos
 * **With Watson**: Want to take your Watson app to the next level? Looking to utilize Watson Brand assets? [Join the With Watson program](https://www.ibm.com/watson/with-watson/) to leverage exclusive brand, marketing, and tech resources to amplify and accelerate your Watson embedded commercial solution.
 
 # License
 
-This code pattern is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](http://www.apache.org/licenses/LICENSE-2.0.txt).
+This code pattern is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
-[Apache Software License (ASL) FAQ](http://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
+[Apache Software License (ASL) FAQ](https://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
